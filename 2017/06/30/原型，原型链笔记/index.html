@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jquery," />
+  <meta name="keywords" content="js基础," />
 
 
 
@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="jq结构1234567(function( window, undefined ) &amp;#123;  // If there is a window object, that at least has a document property,  // define jQuery and $ identifiers  if ( typeof window === &quot;object&quot; &amp;amp;&amp;amp;">
-<meta name="keywords" content="jquery">
+<meta name="description" content="了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系 原型 每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象  p1.propo  ===     Person.prototype    原型链 如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person()">
+<meta name="keywords" content="js基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQ学习1">
-<meta property="og:url" content="http://yoursite.com/2017/05/15/JQ学习1/index.html">
+<meta property="og:title" content="原型，原型链笔记">
+<meta property="og:url" content="http://yoursite.com/2017/06/30/原型，原型链笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jq结构1234567(function( window, undefined ) &amp;#123;  // If there is a window object, that at least has a document property,  // define jQuery and $ identifiers  if ( typeof window === &quot;object&quot; &amp;amp;&amp;amp;">
-<meta property="og:updated_time" content="2017-05-15T04:56:45.343Z">
+<meta property="og:description" content="了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系 原型 每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象  p1.propo  ===     Person.prototype    原型链 如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person()">
+<meta property="og:image" content="http://yoursite.com/img/javascript%20原型及原型链.png">
+<meta property="og:updated_time" content="2017-06-30T09:48:24.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQ学习1">
-<meta name="twitter:description" content="jq结构1234567(function( window, undefined ) &amp;#123;  // If there is a window object, that at least has a document property,  // define jQuery and $ identifiers  if ( typeof window === &quot;object&quot; &amp;amp;&amp;amp;">
+<meta name="twitter:title" content="原型，原型链笔记">
+<meta name="twitter:description" content="了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系 原型 每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象  p1.propo  ===     Person.prototype    原型链 如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person()">
+<meta name="twitter:image" content="http://yoursite.com/img/javascript%20原型及原型链.png">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/15/JQ学习1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/30/原型，原型链笔记/"/>
 
 
 
 
 
-  <title>JQ学习1 | Hexo</title>
+  <title>原型，原型链笔记 | Hexo</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/JQ学习1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/原型，原型链笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="橘子吕">
@@ -274,7 +276,7 @@
             
             
               
-                JQ学习1
+                原型，原型链笔记
               
             
           </h1>
@@ -289,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T12:52:23+08:00">
-                2017-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T15:43:40+08:00">
+                2017-06-30
               </time>
             
 
@@ -346,12 +348,14 @@
       
 
       
-        <h3 id="jq结构"><a href="#jq结构" class="headerlink" title="jq结构"></a>jq结构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"> window, undefined </span>) </span>&#123;</div><div class="line">  <span class="comment">// If there is a window object, that at least has a document property,</span></div><div class="line">  <span class="comment">// define jQuery and $ identifiers</span></div><div class="line">  <span class="keyword">if</span> ( <span class="keyword">typeof</span> <span class="built_in">window</span> === <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">window</span>.document === <span class="string">"object"</span> ) &#123;</div><div class="line">    <span class="built_in">window</span>.jQuery = <span class="built_in">window</span>.$ = jQuery;</div><div class="line">  &#125;</div><div class="line">&#125;)( <span class="built_in">window</span> );</div></pre></td></tr></table></figure>
-<p>传入window对象时防止压缩时window被处理为普通变量<br>undefined在一些浏览器中可以对undefined进行修改</p>
-<h3 id="JQ对象上的属性和方法"><a href="#JQ对象上的属性和方法" class="headerlink" title="JQ对象上的属性和方法"></a>JQ对象上的属性和方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">jQuery = <span class="function"><span class="keyword">function</span>(<span class="params"> selector, context </span>) </span>&#123;</div><div class="line">  <span class="comment">// The jQuery object is actually just the init constructor 'enhanced'</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> jQuery.fn.init( selector, context, rootjQuery );</div><div class="line">&#125;</div><div class="line">jquery.fn = jquery.prototype = &#123;</div><div class="line">  <span class="attr">jquery</span>: 版本, </div><div class="line">  <span class="attr">constructor</span>: 修正指针指向问题,  </div><div class="line">  <span class="attr">init</span>: 初始化和参数管理,</div><div class="line">  <span class="attr">selector</span>: 存储选择字符串, </div><div class="line">  <span class="attr">length</span>: <span class="keyword">this</span>对象的长度,</div><div class="line">  <span class="attr">toArray</span>: 传数组,</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line">jQuery.fn.init.prototype = jQuery.fn;</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/chyingp/blog/blob/master/jquery/jQuery%E6%BA%90%E7%A0%81-%E6%A0%B8%E5%BF%83%E7%BB%93%E6%9E%84.md" target="_blank" rel="external">参考文章</a></p>
-<h3 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a>init方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">jQuery.fn = jQuery.prototype = &#123;</div><div class="line">  <span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">""</span>), $(<span class="literal">null</span>), $(<span class="literal">undefined</span>), $(<span class="literal">false</span>)</div><div class="line"></div><div class="line">    $(<span class="string">'#div1'</span>) </div><div class="line">    $(<span class="string">'.box'</span>) $(<span class="string">'div'</span>)  $(<span class="string">'#div1 div.box'</span>)</div><div class="line">    $(<span class="string">'&lt;li&gt;'</span>)  $(<span class="string">'&lt;li&gt;1&lt;/li&gt;&lt;li&gt;2&lt;/li&gt;'</span>)</div><div class="line">    </div><div class="line">    $(<span class="keyword">this</span>)  $(<span class="built_in">document</span>)    </div><div class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)   </div><div class="line">    $([])  $(&#123;&#125;)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> jQuery.makeArray( selector, <span class="keyword">this</span> );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>备注：<br>1 constructor以字面量的方式定义对象，需要指定当前的constructor<br>2 prototype,  constructor, 面向对象概念理解 </p>
+        <p><img src="/img/javascript 原型及原型链.png" alt=""><br>  <code>了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系</code></p>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a><code>原型</code></h3><blockquote>
+<p>每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象<br>  p1.<strong>propo</strong>  ===     Person.prototype  </p>
+</blockquote>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><code>原型链</code></h3><blockquote>
+<p>如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person();那么new Student（）的实例就会存在Student 存在一个隐士指针指向Student的原型对象，而Student的原型指向了person的原型，由于所有自定义对象都是从Object对象继承来的，那么person的原型有指向了Object的原型</p>
+</blockquote>
+<h3 id="总结（摘自红宝书，第6章）"><a href="#总结（摘自红宝书，第6章）" class="headerlink" title="总结（摘自红宝书，第6章）"></a>总结（摘自红宝书，第6章）</h3><p>  1 原型链之间为引用关系，因此对象实例共享所有的属性和方法，在原型链中的引用类型，因此不适宜单独使用，解决这个问题是利用构造函数，在子类构造函数的内部调用超类的构造函数(Person.call(this, name,,))，这样可以做到每个实例都具有自己的属性，同时还能保证只是用构造函数模式来定义类型。<br>  2 对象可以在编码执行过程中创建和增强，因此具有动态性而非严格定义的实体。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">  f.prototype = o;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> f();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inher</span>(<span class="params">sub,sup</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> prototype = object(sup.prototype); <span class="comment">// 创建对象</span></div><div class="line">  prototype.constructor = sub; <span class="comment">// 增强对象</span></div><div class="line">  sub.prototype = prototype; <span class="comment">// 指定对象</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sup</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.color = [<span class="string">'blue'</span>,<span class="string">'red'</span>]</div><div class="line">&#125;</div><div class="line">sup.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">name,age</span>) </span>&#123;</div><div class="line">  sup.call(<span class="keyword">this</span>, name);</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;    </div><div class="line"></div><div class="line">inher(sub,sup);</div><div class="line"></div><div class="line">sub.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> sub()</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -381,7 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jquery/" rel="tag"># jquery</a>
+            <a href="/tags/js基础/" rel="tag"># js基础</a>
           
         </div>
       
@@ -394,18 +398,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/24/实现列表标题标题头第一列最后一列固定/" rel="next" title="实现列表标题标题头第一列最后一列固定">
-                <i class="fa fa-chevron-left"></i> 实现列表标题标题头第一列最后一列固定
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/03/canvas学习笔记/" rel="prev" title="canvas学习笔记">
-                canvas学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/24/实现列表标题标题头第一列最后一列固定/" rel="prev" title="实现列表标题标题头第一列最后一列固定">
+                实现列表标题标题头第一列最后一列固定 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jq结构"><span class="nav-number">1.</span> <span class="nav-text">jq结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ对象上的属性和方法"><span class="nav-number">2.</span> <span class="nav-text">JQ对象上的属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#init方法"><span class="nav-number">3.</span> <span class="nav-text">init方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结（摘自红宝书，第6章）"><span class="nav-number">3.</span> <span class="nav-text">总结（摘自红宝书，第6章）</span></a></li></ol></div>
             
 
           </div>
