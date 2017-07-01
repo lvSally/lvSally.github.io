@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系 原型 每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象  p1.propo  ===     Person.prototype    原型链 如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person()">
 <meta property="og:image" content="http://yoursite.com/img/javascript%20原型及原型链.png">
-<meta property="og:updated_time" content="2017-06-30T10:05:25.192Z">
+<meta property="og:updated_time" content="2017-07-01T01:32:39.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型，原型链笔记">
 <meta name="twitter:description" content="了解原型，原型链需要了解 原型对象 构造函数 实例三者之间的关系 原型 每个对象(Person)都会有一个原型对象，对象的实例(p1)包含一个隐式的指针指向原型对象  p1.propo  ===     Person.prototype    原型链 如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person()">
@@ -146,6 +146,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2d00d65c9234e4ed153bb65c2c07ae6c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -260,7 +270,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="橘子吕">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -356,7 +366,7 @@
 <p>如图所示 存在一个对象Student，想拥有Person的一些属性和方法，那么Student.proportype = new Person();那么new Student（）的实例就会存在Student 存在一个隐士指针指向Student的原型对象，而Student的原型指向了person的原型，由于所有自定义对象都是从Object对象继承来的，那么person的原型有指向了Object的原型</p>
 </blockquote>
 <h3 id="总结（摘自红宝书，第6章）"><a href="#总结（摘自红宝书，第6章）" class="headerlink" title="总结（摘自红宝书，第6章）"></a>总结（摘自红宝书，第6章）</h3><p>  1 原型链之间为引用关系，因此对象实例共享所有的属性和方法，在原型链中的引用类型，因此不适宜单独使用，解决这个问题是利用构造函数，在子类构造函数的内部调用超类的构造函数(Person.call(this, name,,))，这样可以做到每个实例都具有自己的属性，同时还能保证只是用构造函数模式来定义类型。<br>  2 对象可以在编码执行过程中创建和增强，因此具有动态性而非严格定义的实体。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">  f.prototype = o;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> f();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inher</span>(<span class="params">sub,sup</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> prototype = object(sup.prototype); <span class="comment">// 创建对象</span></div><div class="line">  prototype.constructor = sub; <span class="comment">// 增强对象</span></div><div class="line">  sub.prototype = prototype; <span class="comment">// 指定对象</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sup</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.color = [<span class="string">'blue'</span>,<span class="string">'red'</span>]</div><div class="line">&#125;</div><div class="line">sup.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">name,age</span>) </span>&#123;</div><div class="line">  sup.call(<span class="keyword">this</span>, name);</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;    </div><div class="line"></div><div class="line">inher(sub,sup);</div><div class="line"></div><div class="line">sub.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> sub()</div></pre></td></tr></table></figure></p>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>一个不错的在线编辑图片工具：<a href="http://processon.com/" target="_blank" rel="external">processon</a><br>在问答网站回答问题可以促使去各处查资料，优化表达，学习更全面的知识</p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>一个不错的在线编辑绘制图片工具：<a href="http://processon.com/" target="_blank" rel="external">processon</a><br>在问答网站回答问题可以促使去各处查资料，优化表达，学习更全面的知识</p>
 
       
     </div>
@@ -467,7 +477,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/img/avatar.jpg"
                alt="橘子吕" />
           <p class="site-author-name" itemprop="name">橘子吕</p>
            
