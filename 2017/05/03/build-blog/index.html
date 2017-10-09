@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Home">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T08:12:22.932Z">
+<meta property="og:updated_time" content="2017-10-09T08:34:58.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="build-blog">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
@@ -412,6 +412,7 @@
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div><div class="line"></div><div class="line">// 报错:ERROR Deployer not found: github</div><div class="line">npm install hexo-deployer-git --save</div><div class="line"></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git // 或者github</div><div class="line">  repository: git@github.com:lvSally/lvSally.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<h3 id="Hexo的版本控制与持续集成"><a href="#Hexo的版本控制与持续集成" class="headerlink" title="Hexo的版本控制与持续集成"></a>Hexo的版本控制与持续集成</h3><p><a href="https://formulahendry.github.io/2016/12/04/hexo-ci/#comments" target="_blank" rel="external">参考文章</a><br>思路：新建一个项目，每次代码更新的时候，通过CI生成新的github.io文件<br>问题： 由于我使用next的主题文件，CI后的css、js/src、images、vendors文件夹全部删除了，我通过的是删除next文件提交，然后再添加的方法解决的，原因不太清楚，很神奇，哭..</p>
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>1 使用hexo new page tags/categories 创建分类或标签<br>2 在themes _config.yml 控制主体显示<br>3 themes -&gt; _config.yml -&gt; baidu_analytics 添加百度统计id可添加百度统计功能<br>4 themes -&gt; _config.yml -&gt; avatar 设置头像<br>5 <a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="external">next第三方服务集成</a><br>6 <a href="https://gentie.163.com/help.html" target="_blank" rel="external">网易云跟帖</a> 悲剧的是类似<code>github.io</code>的子域名基本信息填写不能通过<br>7 <a href="https://disqus.com" target="_blank" rel="external">Disqus</a>,最终选择了Disqus，缺点是需要翻墙，使用Disqus比较简单，注册一个账号，在主题的设置文件中添加以下shortname即可。<br>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
@@ -455,14 +456,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/03/canvas学习笔记/" rel="next" title="canvas学习笔记">
+                <i class="fa fa-chevron-left"></i> canvas学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/03/canvas学习笔记/" rel="prev" title="canvas学习笔记">
-                canvas学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/15/JQ学习1/" rel="prev" title="JQ学习1">
+                JQ学习1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入hexo"><span class="nav-number">1.1.</span> <span class="nav-text">导入hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化项目"><span class="nav-number">1.2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.3.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.4.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.5.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.6.</span> <span class="nav-text">Deploy to remote sites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它"><span class="nav-number">1.7.</span> <span class="nav-text">其它</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入hexo"><span class="nav-number">1.1.</span> <span class="nav-text">导入hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化项目"><span class="nav-number">1.2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.3.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.4.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.5.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.6.</span> <span class="nav-text">Deploy to remote sites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo的版本控制与持续集成"><span class="nav-number">1.7.</span> <span class="nav-text">Hexo的版本控制与持续集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它"><span class="nav-number">1.8.</span> <span class="nav-text">其它</span></a></li></ol></li></ol></div>
             
 
           </div>

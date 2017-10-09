@@ -100,6 +100,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[build-blog]]></title>
+    <url>%2F2017%2F05%2F03%2Fbuild-blog%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start导入hexo1$ npm install -g hexo-cli --registry=https://registry.npm.taobao.org 初始化项目1$ hexo init Create a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites123456789$ hexo deploy// 报错:ERROR Deployer not found: githubnpm install hexo-deployer-git --savedeploy: type: git // 或者github repository: git@github.com:lvSally/lvSally.github.io.git branch: master Hexo的版本控制与持续集成参考文章思路：新建一个项目，每次代码更新的时候，通过CI生成新的github.io文件问题： 由于我使用next的主题文件，CI后的css、js/src、images、vendors文件夹全部删除了，我通过的是删除next文件提交，然后再添加的方法解决的，原因不太清楚，很神奇，哭.. 其它1 使用hexo new page tags/categories 创建分类或标签2 在themes _config.yml 控制主体显示3 themes -&gt; _config.yml -&gt; baidu_analytics 添加百度统计id可添加百度统计功能4 themes -&gt; _config.yml -&gt; avatar 设置头像5 next第三方服务集成6 网易云跟帖 悲剧的是类似github.io的子域名基本信息填写不能通过7 Disqus,最终选择了Disqus，缺点是需要翻墙，使用Disqus比较简单，注册一个账号，在主题的设置文件中添加以下shortname即可。More info: Deployment]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[canvas学习笔记]]></title>
     <url>%2F2017%2F05%2F03%2Fcanvas%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[简单例子123456789101112131415161718192021&lt;html&gt; &lt;head&gt; &lt;script type="application/javascript"&gt; function draw() &#123; var canvas = document.getElementById("canvas"); if (canvas.getContext) &#123; var ctx = canvas.getContext("2d"); ctx.fillStyle = "rgb(200,0,0)"; ctx.fillRect (10, 10, 55, 50); ctx.fillStyle = "rgba(0, 0, 200, 0.5)"; ctx.fillRect (30, 30, 55, 50); &#125; &#125; &lt;/script&gt; &lt;/head&gt; &lt;body onload="draw();"&gt; &lt;canvas id="canvas" width="150" height="150"&gt;&lt;/canvas&gt; &lt;/body&gt;&lt;/html&gt; 直接可以绘制图形的方法fillRect(x, y, width, height)绘制一个填充的矩形strokeRect(x, y, width, height)绘制一个矩形的边框clearRect(x, y, width, height)清除指定矩形区域，让清除部分完全透明。 绘制基本图形，文本，图片，变换translate(x, y)translate 方法接受两个参数。x 是左右偏移量，y 是上下偏移量，如右图所示。rotate(angle)这个方法只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。scale(x, y)scale 方法接受两个参数。x,y 分别是横轴和纵轴的缩放因子，它们都必须是正值。值比 1.0 小表示缩小，比 1.0 大则表示放大，值为 1.0 时什么效果都没有。fillStyle = color设置图形的填充颜色。strokeStyle = color设置图形轮廓的颜色。globalAlpha = transparencyValue这个属性影响到 canvas 里所有图形的透明度，有效的值范围是 0.0 （完全透明）到 1.0（完全不透明），默认是 1.0。lineWidth = value设置线条宽度。lineCap = type设置线条末端样式。shadowOffsetX = float shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，它们是不受变换矩阵所影响的。负值表示阴影会往上或左延伸，正值则表示会往下或右延伸，它们默认都为 0。shadowOffsetY = float shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，它们是不受变换矩阵所影响的。负值表示阴影会往上或左延伸，正值则表示会往下或右延伸，它们默认都为 0。shadowBlur = float shadowBlur 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0。shadowColor = color shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。 绘制路径beginPath()新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。closePath()闭合路径之后图形绘制命令又重新指向到上下文中。当你调用fill()函数时，所有没有闭合的形状都会自动闭合，所以你不需要调用closePath()函数。但是调用stroke()时不会自动闭合。stroke()通过线条来绘制图形轮廓。fill()通过填充路径的内容区域生成实心的图形moveTo(x, y)将笔触移动到指定的坐标x以及y上。或者你可以想象一下在纸上作业，一支钢笔或者铅笔的笔尖从一个点到另一个点的移动过程。lineTo(x, y)绘制一条从当前位置到指定x以及y位置的直线。arc(x, y, radius, startAngle, endAngle, anticlockwise)画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。quadraticCurveTo(cp1x, cp1y, x, y)绘制贝塞尔曲线，cp1x,cp1y为控制点，x,y为结束点。rect(x, y, width, height)绘制一个左上角坐标为（x,y），宽高为width以及height的矩形。save()restore()save 和 restore 方法是用来保存和恢复 canvas 状态的，都没有参数。Canvas 的状态就是当前画面应用的所有样式和变形的一个快照。 推荐基于canvas小游戏 基于canvas的小游戏 详细canvas APIMDNcanvas API]]></content>
@@ -108,17 +119,6 @@
       </categories>
       <tags>
         <tag>canvas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[build-blog]]></title>
-    <url>%2F2017%2F05%2F03%2Fbuild-blog%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start导入hexo1$ npm install -g hexo-cli --registry=https://registry.npm.taobao.org 初始化项目1$ hexo init Create a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites123456789$ hexo deploy// 报错:ERROR Deployer not found: githubnpm install hexo-deployer-git --savedeploy: type: git // 或者github repository: git@github.com:lvSally/lvSally.github.io.git branch: master 其它1 使用hexo new page tags/categories 创建分类或标签2 在themes _config.yml 控制主体显示3 themes -&gt; _config.yml -&gt; baidu_analytics 添加百度统计id可添加百度统计功能4 themes -&gt; _config.yml -&gt; avatar 设置头像5 next第三方服务集成6 网易云跟帖 悲剧的是类似github.io的子域名基本信息填写不能通过7 Disqus,最终选择了Disqus，缺点是需要翻墙，使用Disqus比较简单，注册一个账号，在主题的设置文件中添加以下shortname即可。More info: Deployment]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
