@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[js作用域]]></title>
+    <url>%2F2017%2F10%2F10%2Fjs%E4%BD%9C%E7%94%A8%E5%9F%9F%2F</url>
+    <content type="text"><![CDATA[javascript 作用域全局作用域 全局函数声明，if,for,while中定义的函数都属于全局作用域 函数作用域 函数有自己的作用域,因此会有以下来定义局部作用域 123456// 匿名函数被认为是表达式(function() &#123;&#125;)()!function() &#123;&#125; ()+function()&#123;&#125;();(function()&#123;&#125;());var a = function() &#123;return s&#125;(); 函数声明和变量声明会被前置 12345var myvar = &apos;my value&apos;; (function() &#123; alert(myvar); var myvar = &apos;local value&apos;; &#125;)(); 变量声明前置缺省值为undefined 名称解析顺序： 1 当前作用域内是否有 var foo 的定义。 2 函数形式参数是否有使用 foo 名称的。 3 函数自身是否叫做 foo。 4 回溯到上一级作用域，然后从 #1 重新开始。 命名空间 通过立即行函数实现，因为函数拥有自己的作用域。通过这种方式可以避免变量污染 12345678910(function() &#123; // 函数创建一个命名空间 var $ = &#123;&#125;; $.foo = function() &#123; console.log(1) // 对外公开的函数，创建了闭包 &#125;; window.$ = $;&#125;)(); // 立即执行此匿名函数 eval作用域 eval(‘var a = 1;’),由于不建议使用eval，暂不研究 es6箭头函数作用域es3执行作用域 执行上下文 Execution Context 简称ec 变量对象(VO) 抽象概念主要包括（变量， 函数声明， 行数参数） 活动对象(AO) 执行上下文概念： 是一个抽象概念，函数执行前创建，将一系列活动组成一个栈栈底总是全局执行山下文，栈顶总是当前执行上下文]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[this的工作原理]]></title>
+    <url>%2F2017%2F10%2F10%2Fthis%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[this有一下五种指向1 全局范围内的this，指向全局对象2 function中的this，指向全局对象3 方法中的this,指向当前对象4 通过new关键字生成的，指向新生成的对象5 通过call, apply, bind方法时，函数的this指向第一个参数 参考页面，js秘密花园]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[闭包]]></title>
+    <url>%2F2017%2F10%2F09%2F%E9%97%AD%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[闭包定义 有权访问另一个函数作用域的变量的函数 闭包不同于一般的函数，它允许立即词法作用域外调用时仍可访问本地变量 通常这样定义： 12345678function outerFn() &#123; var a = 30; return function() &#123; return a; &#125;&#125;var outer = outerFn(); 闭包表现形式 1 在一个函数中return另一个函数 2 定时器，setTimeout，setInterval 3 addEventListener 4 $.ajax等 12345678910111213141516171819// 闭包无处不在，使用闭包的举例,可以比较方便的访问局部变量!function() &#123; var localData = &quot;localData&quot;; document.addEventListener(&apos;click&apos;, function() &#123; console.log(localData); &#125;);&#125;();!function() &#123; var localData = &apos;localData&apos;; var url = &apos;htp://www.baidu.com&apos;; $.ajax(&#123; url: url, success: function() &#123; // do something console.log(localData); &#125; &#125;);&#125;() 理解闭包，及闭包带来的问题 123456789101112131415161718192021222324252627282930// 示例1function a() &#123; var res = []; for(var i=0; i&lt;10; i++) &#123; res[i] = function() &#123; return i; &#125; &#125; return res;&#125;a() // 一个包括10个函数引用的数组a()[0]() // 10a()[1]() // 10// 示例2for(var i = 0; i &lt; 10; i++) &#123; setTimeout(function() &#123; console.log(i); // 10 &#125;, 1000);&#125;// 示例3function b()&#123; document.body.innerHTML = &apos;&lt;div id=div1&gt;aaa&lt;/div&gt; &lt;div id=div2&gt;bbb&lt;/div&gt; &lt;div id=div3&gt;ccc&lt;/div&gt;&apos;; for(var i=1; i&lt;4; i++) &#123; document.getElementById(&apos;div&apos;+i).addEventListener(&apos;click&apos;, function() &#123; alert(i); &#125;) &#125;&#125; 上面的三种都为闭包的表现形式，他们有共同的特点。都是分两步执行的，1 执行外部函数（或语句），2 执行闭包内函数。 第一个函数执行a(),返回一个数组，数组元素为一个个的函数引用，当执行a()[0],此时for循环已经执行完毕了，因此结果为10 第二个语句内部为定时器，定时器本身就是异步的，for循环先执行，当定时器函数执行的时候i已经为10了。 第三个函数内部为事件绑定，当只有触发click时间的时候才去打印i,此时的i已经是for循环最终执行的值了。 解决这些问题的方法：可以在闭包函数外层包一层立即执行函数，并给立即执行函数添加形参。 12345678910function fn2()&#123; document.body.innerHTML = &apos;&lt;div id=div1&gt;aaa&lt;/div&gt; &lt;div id=div2&gt;bbb&lt;/div&gt; &lt;div id=div3&gt;ccc&lt;/div&gt;&apos;; for(var i=1; i&lt;4; i++) &#123; !function(mun) &#123; document.getElementById(&apos;div&apos;+mun).addEventListener(&apos;click&apos;, function() &#123; alert(mun); &#125;) &#125;(i); &#125;&#125; 使用闭包封装代码 123456789101112131415161718192021(function() &#123; var _userId = 23554; var _typeId = &apos;item&apos;; var exportTest = &#123;&#125;; function converter(userId) &#123; return +userId; &#125; exportTest.getUserId = function() &#123; return converter(_userId); &#125; exportTest.getTypeId = function() &#123; return _typeId; &#125; window.exportTest = exportTest;&#125;());exportTest.getUserId();exportTest.getTypeId(); 释放引用对象，来释放空间 由于闭包会保持对外部函数的引用，会一直占用空间，造成内存泄漏 123456function a() &#123; var b = 1; return function() &#123; console.log(b++) &#125;&#125; var c = a(); c()// 1,第二次执行打印2,依次加一,, c = null; // 解除对匿名函数的引用，这样对变量b的引用就会结束 其它 使用作用域链去解释闭包。（闭包活动对象-》函数活动对象-》全局变量对象）]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[继承]]></title>
     <url>%2F2017%2F10%2F08%2F%E7%BB%A7%E6%89%BF%2F</url>
     <content type="text"><![CDATA[原型链构造函数，原型对象，实例关系：每个构造函数都有一个原型对象，原型对象对象包含指向构造函数的指针，每个实例都包含指向原型对象的内部指针。当把一个实例赋值给一个原型对象的时候，原型对象-》实例-》该实例的原型对象（从而获取该实例的属性方法），原型的查找顺序也是(原型对象-》实例-》该实例)从左向右查找的。1Sub.prototype = new sup(); 1 默认的原型为Object，因此每个对象都会有hasOwnProperty, isPropertyOf, toString等方法2 确定原型与实例的关系可以根据 instanceof Person.prototype.isPropertyOf(p1) 判断3 注意定义方法的顺序，给原型添加的方法一定要放在替换原型的语句之后4 原型链的问题：和原型一样，引用类型的数据会被所有实例共享。 借用构造函数（constructor stealing）借用构造函数就是通过call,apply的方式将另一个的构造函数当做自己的函数体function sup() {}function sub() { sup.call(this);}这种方式很少单独使用，无法避免构造函数模式存在的问题 特点可以在子类的构造函数中给超类的构造函数传递参数 组合继承组合继承 = 原型链 + 借用构造函数模式1234567function sup() &#123;&#125;function sub() &#123; sup.call(this);&#125;sub.prototype = new sup();sub.prototype.constructor = sub;... 融合了两种模式的优点，是最常用的继承模式 原型式继承1234567function object(o) &#123; // o必须为一个对象 function F() &#123;&#125;; F.prototype = o; return new F();&#125;// es5规范了原型式继承Object.create(o); 寄生式继承在原型式继承的基础上继续加工的结果12345function Test(o) &#123; var clone = object(o); clone.sayHi = function() &#123;&#125; return clone;&#125; 寄生组合继承通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。将sub.prototype = new sup()替换为了object(sup.prototype),省去了一次构造函数的调用（可是增加了new F() ..） 备注理解这些概念的时候本身就比较生硬，考虑问题的时候需要过滤掉一些干扰性的元素，考虑要考虑的问题本身。]]></content>
@@ -23,17 +56,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[布局]]></title>
-    <url>%2F2017%2F09%2F29%2F%E5%B8%83%E5%B1%80%2F</url>
-    <content type="text"><![CDATA[布局: 元素的摆放方式displaypositionfloatflex display 实现同行显示或者换行显示 block（p, h1, ul, form） 和margin: 0 auto 组合使用，居中显示 inline(span, a, label) inline-block(input, textarea, select, button) 和inline比起来，内容换行后占据宽度剩下的空间 和 vertical-align: middle 实现垂直居中 none display: none VS visibility: hidden visibility 元素仅仅是隐藏，占据原来的空间 position 定位top, bottom, left, right, z-index同时设置top, bottom, left, right会将元素撑开 z-index 栈, 因此z-index大的不一定就显示在上面 static|relative|absolute|fixed relative仍在文档流中参照物为元素本身 absolute默认宽度为内容宽度脱离文档流参照物为第一个定位祖先/视窗（包含块/初始包含块–padding-edge）https://segmentfault.com/a/1190000009661604 fixed默认宽度为内容宽度脱离文档流参照物为视窗 ios中会存在一些问题，存在原因？解决方式？问题，解决方案iscroll库引入动态改变position的值，改为static floatleft right none默认宽度为内容宽度半脱离文档流（对元素，托利文档流，对内容，在文档流）会向指定方向一直移动 clear [both|left:right|none|inherit]应用于后续元素应用块级元素清除浮动的方法：增加空白元素，设置class{display: block; clear: both; }在浮动元素的父元素添加clearfix.clearfix:after { content: ‘.’; display: block; clear: both; height: 0; overflow: hidden; visibility: hidden;} flexflex-grow: 拉伸flex-shrink: 收缩 其它实现左右布局的方式absolute+margin-leftfix+margin-leftfloatflex 顶部固定，底部固定布局position: fixed固定，使用padding-bottom和padding-top控制上下间距。 走马观花的耕了一遍..感觉没有多少成就感，呜呜 ~~(&gt;_&lt;)~~ 以后有收获再来升级这篇文章吧..]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>布局</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[创建对象]]></title>
     <url>%2F2017%2F09%2F29%2F%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[对象描述： 无序的key,value键值对 整个对象发展的过程： ——》先是有个new一个对象的写法 简化写法 ——》对象字面量（可以使用对象写法） 批量生产 ——》工厂模式（new Object） 区别自定义对象类型 ——》构造函数类型（可以new 自定义类型, 构造函数定义来了） 解决函数类型实例化造成的空间浪费 ——》原型模式（出现原型对象） 原型对象为实例共享，引用类型修改时会对其它实例造成影响 ——》组合使用构造函数原型模式（1+1 = ？） … 一系列的相关的问题 this指向，改变this指向的途径，作用域，识别实例来自哪个构造函数，对象看成一个key,value列表因此出现元素遍历,区别实例属性原型链属相-&gt;for in-&gt;.. 创建自定义对象 对象字面量 123456789var person = &#123; name: &apos;aa&apos;, age: 18&#125;Object实例创建var person = new Object();person.name = &apos;aa&apos;;person.age = 18; 属性 数据属性 访问器属性： 封装一些组件时一些高级用法时使用 工厂模式 12345678function createPerson(name, age) &#123; var o = new Object(); o.name = name; o.age = age; return o;&#125;var p1 = createPerson(&apos;abc&apos;, &apos;16&apos;); 解决构造函数或者对象字面量重复的问题，就好比一个蛋糕模子，每次创造出一模一样的东西，缺点：无法区别这些蛋糕（没有解决对象的识别问题） 构造函数模式 与工厂模式比较有点是可以将实例识别为某一种特定的类型 为了区别构造函数和普通函数构造函数首字符大写，构造函数本质就是普通函数，当使用关键字new的时候会产生神奇的变化 1 创建新对象 2 将构造函数的作用域赋值给新对象（this指向改变） 3 执行构造函数的代码（为新对象添加属性） 4 返回新对象 123456function Person(name, age) &#123; this.name = name; this.age = age; console.log(1);&#125;var p1 = new Person(); 缺点：属性为function类型时，多次创建实例的同时也会创建多个function实例 原型模式 原型模式需要理清 构造函数，实例，原型对象之间的关系 1 理解原型对象 每个函数都有prototype属性，存储了原型对象。创建原型对象后会自动获取constructor属相，其余属性都是从Object上继承而来 方法： 12345678910111213141516function Person() &#123;&#125;Person.prototype.name = &apos;name&apos;;Person.prototype.age = &apos;agePro&apos;;var person1 = new Person();person1.age = &apos;age&apos;;Person.prototype.isPrototypeOf(person1)// true;// 返回原型链上的值Object.getPrototypeOf(person1);// 使用delete可以删除实例属性，那么就可以正常获取原型属性了delete person1.age// hasOwnProperty,判断属相是否为实例属性person1.hasOwnProperty(&apos;age&apos;) //boolean 原型与in操作符 in 两种使用方式 单独使用/ for in 循环 for in循环可以遍历可枚举的属性，因此位于原型或者实例的都可以扫描到 in 使用 1234567891011&quot;age&quot; in person1// 判断属相属于实例还是原型：function hasPrototypePropertype(obj, name) &#123; return !obj.hasOwnProperty(name) &amp;&amp; (name in obj);&#125;// Object添加keys()属性，返回所有可枚举的属性（字符串数组）Object.keys(person1)// 返回所有属性，包括不可以枚举属性Object.getOwnPropertyNames(person1)Object.getOwnPropertyNames(Person.prototype) 更简单的原型语法 123456789function Person() &#123;&#125;Person.prototype = &#123; constructor: Person, // 需要添加这个，否则constructor指针将不指向person，重新设置constructor属性会导致该属性标记为可枚举类型，不过可以重新定义为definePropoty(Person.prototype, &apos;constructor&apos;, &#123; enumerable: false, value: Person &#125;) name: &apos;name&apos;, age: &apos;age&apos;&#125; 原型的动态性 1234567891011121314function Person() &#123;&#125;var p2 = new Person();Person.prototype = &#123; constructor: Person, name: &apos;name&apos;, age: &apos;age&apos;&#125;p2.age // undefinedfunction Person() &#123;&#125;var person1 = new Person();Person.prototype.name = &apos;name&apos;;Person.prototype.age = &apos;agePro&apos;;person1.age; // agePro 原生对象的原型 所有原生的引用类型都是通过原型模式创建的，他们都在构造函数的原型上添加了方法，因此可以给这些原生对象添加原型属性，这样不好，， 原型对象的问题 实例可以更改引用类型的属性，导致其他的实例受影响 组合使用构造函数原型模式 没啥好说的，结合了两种模式的优点，是使用最广泛的模式了 动态原型模式 模仿其他oop语言，将所有信息封装在构造函数中。增加if判断语句，在执行构造函数时初始化实例方法。 寄生构造函数模式 和工厂模式一样，除了实例化时使用了new关键字调用构造函数,在某些特殊情况使用，比如创建一个具有二外方法的数组。 12345678function createPerson(name, age) &#123; var o = new Object(); o.name = name; o.age = age; return o;&#125;var p1 = new createPerson(&apos;abc&apos;, &apos;16&apos;); 稳妥构造函数模式 和寄生构造函数类似，不同的是： 1 构造函数中不能使用this；2 不能用new关键字调用构造函数； 3 可以定义私有变量，不能通过实例直接访问属性，有点像oop中的私有属性，哭，， 1234567891011function createPerson(name) &#123; var o = new Object(); // 可以定义私有变量 o.sayName = function() &#123; alert(name) &#125; return o;&#125;var p1 = createPerson(&apos;abc&apos;);p1.sayName();// 只能通过调用sayName方法访问属性。 问题 操作符 in typeof instanceof delete Object 好神奇 Function.prototype.[call|aplly|bind|isGenerator|toSource|toString] bind：改变this指向，不执行函数体，返回改变this后的函数引用 call,apply: 改变this指向，执行函数体，返回执行结果 12345678910111213141516this.x=10;var obj = &#123; x: 100, num: function(desc) &#123; console.log(desc+this.x) &#125;&#125;obj.x; // 100obj.num(&apos;d&apos;); // 100var b = obj.num;// 此刻的this为函数的this，指向全局b(&apos;e&apos;); // 10var b2 = b.bind(obj,&apos;a&apos;);b2(&apos;f&apos;); // 100var b3 = b.call(obj, &apos;b&apos;) // 100var b3 = b.apply(obj, [&apos;c&apos;]) // 100 this指向 new一个对象都做了什么 constructor属性指向构造函数,作用？ https://segmentfault.com/q/1010000000347868 函数作用域，函数的this指向 作用域（函数作用域，全局作用域，es6块作用域） 好像没有删除原型属性的方法 参考网站]]></content>
@@ -42,6 +64,17 @@
       </categories>
       <tags>
         <tag>js基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[布局]]></title>
+    <url>%2F2017%2F09%2F29%2F%E5%B8%83%E5%B1%80%2F</url>
+    <content type="text"><![CDATA[布局: 元素的摆放方式displaypositionfloatflex display 实现同行显示或者换行显示 block（p, h1, ul, form） 和margin: 0 auto 组合使用，居中显示 inline(span, a, label) inline-block(input, textarea, select, button) 和inline比起来，内容换行后占据宽度剩下的空间 和 vertical-align: middle 实现垂直居中 none display: none VS visibility: hidden visibility 元素仅仅是隐藏，占据原来的空间 position 定位top, bottom, left, right, z-index同时设置top, bottom, left, right会将元素撑开 z-index 栈, 因此z-index大的不一定就显示在上面 static|relative|absolute|fixed relative仍在文档流中参照物为元素本身 absolute默认宽度为内容宽度脱离文档流参照物为第一个定位祖先/视窗（包含块/初始包含块–padding-edge）https://segmentfault.com/a/1190000009661604 fixed默认宽度为内容宽度脱离文档流参照物为视窗 ios中会存在一些问题，存在原因？解决方式？问题，解决方案iscroll库引入动态改变position的值，改为static floatleft right none默认宽度为内容宽度半脱离文档流（对元素，托利文档流，对内容，在文档流）会向指定方向一直移动 clear [both|left:right|none|inherit]应用于后续元素应用块级元素清除浮动的方法：增加空白元素，设置class{display: block; clear: both; }在浮动元素的父元素添加clearfix.clearfix:after { content: ‘.’; display: block; clear: both; height: 0; overflow: hidden; visibility: hidden;} flexflex-grow: 拉伸flex-shrink: 收缩 其它实现左右布局的方式absolute+margin-leftfix+margin-leftfloatflex 顶部固定，底部固定布局position: fixed固定，使用padding-bottom和padding-top控制上下间距。 走马观花的耕了一遍..感觉没有多少成就感，呜呜 ~~(&gt;_&lt;)~~ 以后有收获再来升级这篇文章吧..]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>布局</tag>
       </tags>
   </entry>
   <entry>
