@@ -90,7 +90,7 @@
 
 
 
-<meta name="description" content="对象描述： 无序的key,value键值对  整个对象发展的过程：    ——》先是有个new一个对象的写法      简化写法    ——》对象字面量（可以使用对象写法）      批量生产    ——》工厂模式（new Object）      区别自定义对象类型    ——》构造函数类型（可以new 自定义类型, 构造函数定义来了）      解决函数类型实例化造成的空间浪费">
+<meta name="description" content="对象描述： 无序的key,value键值对  整个对象发展的过程：    ——》先是有个new一个对象的写法      简化写法    ——》对象字面量（可以使用对象写法）      批量生产    ——》工厂模式（new Object）      区别自定义对象类型    ——》构造函数类型（可以new 自定义类型,">
 <meta name="keywords" content="js基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建对象">
@@ -100,7 +100,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/创建对象.png">
 <meta property="og:image" content="http://yoursite.com/img/构造函数执行过程.png">
-<meta property="og:updated_time" content="2017-10-10T05:50:59.031Z">
+<meta property="og:updated_time" content="2017-10-11T02:46:45.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建对象">
 <meta name="twitter:description" content="对象描述： 无序的key,value键值对  整个对象发展的过程：    ——》先是有个new一个对象的写法      简化写法    ——》对象字面量（可以使用对象写法）      批量生产    ——》工厂模式（new Object）      区别自定义对象类型    ——》构造函数类型（可以new 自定义类型, 构造函数定义来了）      解决函数类型实例化造成的空间浪费">
@@ -425,7 +425,7 @@
 <h3 id="原型对象的问题"><a href="#原型对象的问题" class="headerlink" title="原型对象的问题"></a>原型对象的问题</h3><p>  实例可以更改引用类型的属性，导致其他的实例受影响</p>
 <h2 id="组合使用构造函数原型模式"><a href="#组合使用构造函数原型模式" class="headerlink" title="组合使用构造函数原型模式"></a>组合使用构造函数原型模式</h2><p>  没啥好说的，结合了两种模式的优点，是使用最广泛的模式了</p>
 <h2 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h2><p>  模仿其他oop语言，将所有信息封装在构造函数中。增加<code>if</code>判断语句，在执行构造函数时初始化实例方法。</p>
-<h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><p>  和工厂模式一样，除了实例化时使用了new关键字调用构造函数,在某些特殊情况使用，比如创建一个具有二外方法的数组。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function createPerson(name, age) &#123;</div><div class="line">  var o =  new Object();</div><div class="line">  o.name = name;</div><div class="line">  o.age = age;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = new createPerson(&apos;abc&apos;, &apos;16&apos;);</div></pre></td></tr></table></figure></p>
+<h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><p>  和工厂模式一样，除了实例化时使用了new关键字调用构造函数,在某些特殊情况使用，比如创建一个具有额外方法的数组。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function createPerson(name, age) &#123;</div><div class="line">  var o =  new Object();</div><div class="line">  o.name = name;</div><div class="line">  o.age = age;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = new createPerson(&apos;abc&apos;, &apos;16&apos;);</div></pre></td></tr></table></figure></p>
 <h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><p>  和寄生构造函数类似，不同的是： 1 构造函数中不能使用<code>this</code>；2 不能用<code>new</code>关键字调用构造函数； 3 可以定义私有变量，不能通过实例直接访问属性，有点像oop中的<code>私有属性</code>，哭，，<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createPerson(name) &#123;</div><div class="line">  var o =  new Object();</div><div class="line">  // 可以定义私有变量</div><div class="line">  o.sayName = function() &#123;</div><div class="line">    alert(name)</div><div class="line">  &#125;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = createPerson(&apos;abc&apos;);</div><div class="line">p1.sayName();// 只能通过调用sayName方法访问属性。</div></pre></td></tr></table></figure></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/delete" target="_blank" rel="external">操作符</a> <code>in</code> <code>typeof</code> <code>instanceof</code> <code>delete</code><br>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="external">Object</a> 好神奇<br>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external">Function.prototype</a>.[call|aplly|bind|isGenerator|toSource|toString]</p>
 <p>  bind：改变this指向，不执行函数体，返回改变this后的函数引用<br>  call,apply: 改变this指向，执行函数体，返回执行结果<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">this.x=10;</div><div class="line">var obj = &#123;</div><div class="line">  x: 100,</div><div class="line">  num: function(desc) &#123;</div><div class="line">    console.log(desc+this.x)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj.x; // 100</div><div class="line">obj.num(&apos;d&apos;); // 100</div><div class="line">var b = obj.num;// 此刻的this为函数的this，指向全局</div><div class="line">b(&apos;e&apos;); // 10</div><div class="line">var b2 = b.bind(obj,&apos;a&apos;);</div><div class="line">b2(&apos;f&apos;); // 100</div><div class="line">var b3 = b.call(obj, &apos;b&apos;) // 100</div><div class="line">var b3 = b.apply(obj, [&apos;c&apos;]) // 100</div></pre></td></tr></table></figure></p>
@@ -563,7 +563,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,7 +574,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
