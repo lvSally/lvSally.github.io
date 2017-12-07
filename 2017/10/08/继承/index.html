@@ -90,7 +90,7 @@
 
 
 
-<meta name="description" content="原型链构造函数，原型对象，实例关系：每个构造函数都有一个原型对象，原型对象对象包含指向构造函数的指针，每个实例都包含指向原型对象的内部指针。当把一个实例赋值给一个原型对象的时候，原型对象-》实例-》该实例的原型对象（从而获取该实例的属性方法），原型的查找顺序也是(原型对象-》实例-》该实例的原型对象)从左向右查找的。1">
+<meta name="description" content="原型链构造函数，原型对象，实例关系：每个构造函数都有一个原型对象，原型对象对象包含指向构造函数的指针，每个实例都包含指向原型对象的内部指针。当把一个实例赋值给一个原型对象的时候，原型对象-》实例-》该实例的原型对象（从而获取该实例的属性方法），原型的查找顺序也是(原型对象-》实例-》该实例的原型对象)从左向右查找的。1Sub.prototype = new sup();  1 默认的原型为Obje">
 <meta name="keywords" content="js基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="继承">
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用构造函数（constructor-stealing）"><span class="nav-number">2.</span> <span class="nav-text">借用构造函数（constructor stealing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合继承"><span class="nav-number">3.</span> <span class="nav-text">组合继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型式继承"><span class="nav-number">4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生式继承"><span class="nav-number">5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生组合继承"><span class="nav-number">6.</span> <span class="nav-text">寄生组合继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">7.</span> <span class="nav-text">备注</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x539F;&#x578B;&#x94FE;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;"></a>&#x539F;&#x578B;&#x94FE;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用构造函数（constructor-stealing）"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;constructor-stealing&#xFF09;" class="headerlink" title="&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;constructor stealing&#xFF09;"></a>&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;constructor stealing&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合继承"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x7EC4;&#x5408;&#x7EE7;&#x627F;" class="headerlink" title="&#x7EC4;&#x5408;&#x7EE7;&#x627F;"></a>&#x7EC4;&#x5408;&#x7EE7;&#x627F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型式继承"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生式继承"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;"></a>&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生组合继承"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;" class="headerlink" title="&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;"></a>&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">7.</span> <span class="nav-text"><a href="#&#x5907;&#x6CE8;" class="headerlink" title="&#x5907;&#x6CE8;"></a>&#x5907;&#x6CE8;</span></a></li></ol></div>
             
 
           </div>

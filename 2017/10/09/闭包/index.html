@@ -90,7 +90,7 @@
 
 
 
-<meta name="description" content="闭包定义  有权访问另一个函数作用域的变量的函数  闭包不同于一般的函数，它允许立即词法作用域外调用时仍可访问本地变量   通常这样定义：  12345678function outerFn() &amp;#123;  var a = 30;  return function() &amp;#123;    retur">
+<meta name="description" content="闭包定义  有权访问另一个函数作用域的变量的函数  闭包不同于一般的函数，它允许立即词法作用域外调用时仍可访问本地变量   通常这样定义：  12345678function outerFn() &amp;#123;  var a = 30;  return function() &amp;#123;    return a;  &amp;#125;&amp;#125;var outer = outerFn(); 闭包表现形式">
 <meta name="keywords" content="js基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包">
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包定义"><span class="nav-number">1.</span> <span class="nav-text">闭包定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包表现形式"><span class="nav-number">2.</span> <span class="nav-text">闭包表现形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解闭包，及闭包带来的问题"><span class="nav-number">3.</span> <span class="nav-text">理解闭包，及闭包带来的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用闭包封装代码"><span class="nav-number">4.</span> <span class="nav-text">使用闭包封装代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#释放引用对象，来释放空间"><span class="nav-number">5.</span> <span class="nav-text">释放引用对象，来释放空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text">其它</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包定义"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x95ED;&#x5305;&#x5B9A;&#x4E49;" class="headerlink" title="&#x95ED;&#x5305;&#x5B9A;&#x4E49;"></a>&#x95ED;&#x5305;&#x5B9A;&#x4E49;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包表现形式"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x95ED;&#x5305;&#x8868;&#x73B0;&#x5F62;&#x5F0F;" class="headerlink" title="&#x95ED;&#x5305;&#x8868;&#x73B0;&#x5F62;&#x5F0F;"></a>&#x95ED;&#x5305;&#x8868;&#x73B0;&#x5F62;&#x5F0F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解闭包，及闭包带来的问题"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x7406;&#x89E3;&#x95ED;&#x5305;&#xFF0C;&#x53CA;&#x95ED;&#x5305;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x7406;&#x89E3;&#x95ED;&#x5305;&#xFF0C;&#x53CA;&#x95ED;&#x5305;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;"></a>&#x7406;&#x89E3;&#x95ED;&#x5305;&#xFF0C;&#x53CA;&#x95ED;&#x5305;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用闭包封装代码"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5C01;&#x88C5;&#x4EE3;&#x7801;" class="headerlink" title="&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5C01;&#x88C5;&#x4EE3;&#x7801;"></a>&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5C01;&#x88C5;&#x4EE3;&#x7801;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#释放引用对象，来释放空间"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x91CA;&#x653E;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x6765;&#x91CA;&#x653E;&#x7A7A;&#x95F4;" class="headerlink" title="&#x91CA;&#x653E;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x6765;&#x91CA;&#x653E;&#x7A7A;&#x95F4;"></a>&#x91CA;&#x653E;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x6765;&#x91CA;&#x653E;&#x7A7A;&#x95F4;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x5176;&#x5B83;" class="headerlink" title="&#x5176;&#x5B83;"></a>&#x5176;&#x5B83;</span></a></li></ol></div>
             
 
           </div>
