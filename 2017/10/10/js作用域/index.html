@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Home">
 <meta property="og:description" content="javascript 作用域全局作用域  全局函数声明，if,for,while中定义的函数都属于全局作用域 函数作用域  函数有自己的作用域,因此会有以下来定义局部作用域  123456// 匿名函数被认为是表达式(function() &amp;#123;&amp;#125;)()!function() &amp;#123;&amp;#125; ()+function()&amp;#123;&amp;#125;();(function()&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T07:33:21.131Z">
+<meta property="og:updated_time" content="2018-01-31T08:28:17.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js作用域">
 <meta name="twitter:description" content="javascript 作用域全局作用域  全局函数声明，if,for,while中定义的函数都属于全局作用域 函数作用域  函数有自己的作用域,因此会有以下来定义局部作用域  123456// 匿名函数被认为是表达式(function() &amp;#123;&amp;#125;)()!function() &amp;#123;&amp;#125; ()+function()&amp;#123;&amp;#125;();(function()&amp;">
@@ -403,14 +403,14 @@
 
       
         <h2 id="javascript-作用域"><a href="#javascript-作用域" class="headerlink" title="javascript 作用域"></a>javascript 作用域</h2><h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>  全局函数声明，<code>if</code>,<code>for</code>,<code>while</code>中定义的函数都属于全局作用域</p>
-<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>  函数有自己的作用域,因此会有以下来定义局部作用域<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 匿名函数被认为是表达式</div><div class="line">(function() &#123;&#125;)()</div><div class="line">!function() &#123;&#125; ()</div><div class="line">+function()&#123;&#125;();</div><div class="line">(function()&#123;&#125;());</div><div class="line">var a = function() &#123;return s&#125;();</div></pre></td></tr></table></figure></p>
-<h4 id="函数声明和变量声明会被前置"><a href="#函数声明和变量声明会被前置" class="headerlink" title="函数声明和变量声明会被前置"></a>函数声明和变量声明会被前置</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var myvar = &apos;my value&apos;;  </div><div class="line">(function() &#123;  </div><div class="line">    alert(myvar);  </div><div class="line">    var myvar = &apos;local value&apos;;  </div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>  函数有自己的作用域,因此会有以下来定义局部作用域<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 匿名函数被认为是表达式</span><br><span class="line">(function() &#123;&#125;)()</span><br><span class="line">!function() &#123;&#125; ()</span><br><span class="line">+function()&#123;&#125;();</span><br><span class="line">(function()&#123;&#125;());</span><br><span class="line">var a = function() &#123;return s&#125;();</span><br></pre></td></tr></table></figure></p>
+<h4 id="函数声明和变量声明会被前置"><a href="#函数声明和变量声明会被前置" class="headerlink" title="函数声明和变量声明会被前置"></a>函数声明和变量声明会被前置</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var myvar = &apos;my value&apos;;  </span><br><span class="line">(function() &#123;  </span><br><span class="line">    alert(myvar);  </span><br><span class="line">    var myvar = &apos;local value&apos;;  </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>  变量声明前置缺省值为undefined</p>
 <blockquote>
 <p>名称解析顺序：<br>  1 当前作用域内是否有 var foo 的定义。<br>  2 函数形式参数是否有使用 foo 名称的。<br>  3 函数自身是否叫做 foo。<br>  4 回溯到上一级作用域，然后从 <code>#1</code> 重新开始。</p>
 </blockquote>
 <h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><p>  通过立即行函数实现，因为函数拥有自己的作用域。通过这种方式可以避免变量污染</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    // 函数创建一个命名空间</div><div class="line">    var $ = &#123;&#125;;</div><div class="line">    $.foo = function() &#123;</div><div class="line">      console.log(1)</div><div class="line">        // 对外公开的函数，创建了闭包</div><div class="line">    &#125;;</div><div class="line">    window.$ = $;</div><div class="line"></div><div class="line">&#125;)(); // 立即执行此匿名函数</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(function() &#123;</span><br><span class="line">    // 函数创建一个命名空间</span><br><span class="line">    var $ = &#123;&#125;;</span><br><span class="line">    $.foo = function() &#123;</span><br><span class="line">      console.log(1)</span><br><span class="line">        // 对外公开的函数，创建了闭包</span><br><span class="line">    &#125;;</span><br><span class="line">    window.$ = $;</span><br><span class="line"></span><br><span class="line">&#125;)(); // 立即执行此匿名函数</span><br></pre></td></tr></table></figure>
 <h3 id="eval作用域"><a href="#eval作用域" class="headerlink" title="eval作用域"></a>eval作用域</h3><p>  eval(‘var a = 1;’),由于不建议使用eval，暂不研究</p>
 <h3 id="es6箭头函数作用域"><a href="#es6箭头函数作用域" class="headerlink" title="es6箭头函数作用域"></a>es6箭头函数作用域</h3><h2 id="es3执行作用域"><a href="#es3执行作用域" class="headerlink" title="es3执行作用域"></a>es3执行作用域</h2><p>  执行上下文 Execution Context 简称ec<br>  变量对象(VO) 抽象概念主要包括（变量， 函数声明， 行数参数）<br>  活动对象(AO)<br>  执行上下文概念： 是一个抽象概念，函数执行前创建，将一系列活动组成一个栈栈底总是全局执行山下文，栈顶总是当前执行上下文</p>
 
@@ -546,7 +546,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -568,7 +568,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -603,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript-作用域"><span class="nav-number">1.</span> <span class="nav-text"><a href="#javascript-&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="javascript &#x4F5C;&#x7528;&#x57DF;"></a>javascript &#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;"></a>&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;"></a>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明和变量声明会被前置"><span class="nav-number">1.2.1.</span> <span class="nav-text"><a href="#&#x51FD;&#x6570;&#x58F0;&#x660E;&#x548C;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x4F1A;&#x88AB;&#x524D;&#x7F6E;" class="headerlink" title="&#x51FD;&#x6570;&#x58F0;&#x660E;&#x548C;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x4F1A;&#x88AB;&#x524D;&#x7F6E;"></a>&#x51FD;&#x6570;&#x58F0;&#x660E;&#x548C;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x4F1A;&#x88AB;&#x524D;&#x7F6E;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命名空间"><span class="nav-number">1.2.2.</span> <span class="nav-text"><a href="#&#x547D;&#x540D;&#x7A7A;&#x95F4;" class="headerlink" title="&#x547D;&#x540D;&#x7A7A;&#x95F4;"></a>&#x547D;&#x540D;&#x7A7A;&#x95F4;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eval作用域"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#eval&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="eval&#x4F5C;&#x7528;&#x57DF;"></a>eval&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#es6箭头函数作用域"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#es6&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="es6&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;"></a>es6&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es3执行作用域"><span class="nav-number">2.</span> <span class="nav-text"><a href="#es3&#x6267;&#x884C;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="es3&#x6267;&#x884C;&#x4F5C;&#x7528;&#x57DF;"></a>es3&#x6267;&#x884C;&#x4F5C;&#x7528;&#x57DF;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript-作用域"><span class="nav-number">1.</span> <span class="nav-text">javascript 作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-number">1.2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明和变量声明会被前置"><span class="nav-number">1.2.1.</span> <span class="nav-text">函数声明和变量声明会被前置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命名空间"><span class="nav-number">1.2.2.</span> <span class="nav-text">命名空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eval作用域"><span class="nav-number">1.3.</span> <span class="nav-text">eval作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#es6箭头函数作用域"><span class="nav-number">1.4.</span> <span class="nav-text">es6箭头函数作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es3执行作用域"><span class="nav-number">2.</span> <span class="nav-text">es3执行作用域</span></a></li></ol></div>
             
 
           </div>
@@ -626,7 +626,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

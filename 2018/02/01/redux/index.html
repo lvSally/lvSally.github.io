@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="选择器," />
+  <meta name="keywords" content="redux," />
 
 
 
@@ -90,20 +90,18 @@
 
 
 
-<meta name="description" content="总结选择器感觉就是像在记流水账，，，不过css的选择器功能确实挺强大的，有些匹配和正则的匹配方式是一致的，有些是css3新增的，旧版本的浏览器可能会不支持，可以通过caniuse网站来查看兼容性。  详细脑图 css历史 css1 1996  css2 1992  css2.1 2007  css3 2001-.  外部文件引入方式 &amp;lt;link rel=&amp;quot;stylesheet&amp;q">
-<meta name="keywords" content="选择器">
+<meta name="description" content="redux一直没有总结,去看中间件的源码看得更是晕乎乎的，下面的总结是站在大牛的肩膀上看到的远方。  Redux  redux说白了就是一个保存全局变量的东西。当一个项目需要处理一个比较复杂的数据流的时候，可能就会出现各种状态管理工具，redux就是其中之一。  可以将redux理解为保存一个可供外部读取和修改的私有变量，利用了闭包的特性。在闭包函数中提供了一些方法：获取，修改，订阅更新   R">
+<meta name="keywords" content="redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css选择器">
-<meta property="og:url" content="http://yoursite.com/2017/09/29/css选择器/index.html">
+<meta property="og:title" content="redux">
+<meta property="og:url" content="http://yoursite.com/2018/02/01/redux/index.html">
 <meta property="og:site_name" content="Home">
-<meta property="og:description" content="总结选择器感觉就是像在记流水账，，，不过css的选择器功能确实挺强大的，有些匹配和正则的匹配方式是一致的，有些是css3新增的，旧版本的浏览器可能会不支持，可以通过caniuse网站来查看兼容性。  详细脑图 css历史 css1 1996  css2 1992  css2.1 2007  css3 2001-.  外部文件引入方式 &amp;lt;link rel=&amp;quot;stylesheet&amp;q">
+<meta property="og:description" content="redux一直没有总结,去看中间件的源码看得更是晕乎乎的，下面的总结是站在大牛的肩膀上看到的远方。  Redux  redux说白了就是一个保存全局变量的东西。当一个项目需要处理一个比较复杂的数据流的时候，可能就会出现各种状态管理工具，redux就是其中之一。  可以将redux理解为保存一个可供外部读取和修改的私有变量，利用了闭包的特性。在闭包函数中提供了一些方法：获取，修改，订阅更新   R">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/选择器.png">
-<meta property="og:updated_time" content="2018-01-31T08:28:17.030Z">
+<meta property="og:updated_time" content="2018-02-01T07:52:15.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css选择器">
-<meta name="twitter:description" content="总结选择器感觉就是像在记流水账，，，不过css的选择器功能确实挺强大的，有些匹配和正则的匹配方式是一致的，有些是css3新增的，旧版本的浏览器可能会不支持，可以通过caniuse网站来查看兼容性。  详细脑图 css历史 css1 1996  css2 1992  css2.1 2007  css3 2001-.  外部文件引入方式 &amp;lt;link rel=&amp;quot;stylesheet&amp;q">
-<meta name="twitter:image" content="http://yoursite.com/img/选择器.png">
+<meta name="twitter:title" content="redux">
+<meta name="twitter:description" content="redux一直没有总结,去看中间件的源码看得更是晕乎乎的，下面的总结是站在大牛的肩膀上看到的远方。  Redux  redux说白了就是一个保存全局变量的东西。当一个项目需要处理一个比较复杂的数据流的时候，可能就会出现各种状态管理工具，redux就是其中之一。  可以将redux理解为保存一个可供外部读取和修改的私有变量，利用了闭包的特性。在闭包函数中提供了一些方法：获取，修改，订阅更新   R">
 
 
 
@@ -131,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/29/css选择器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/01/redux/"/>
 
 
 
 
 
-  <title>css选择器 | Home</title>
+  <title>redux | Home</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/css选择器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/01/redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="橘子吕">
@@ -321,7 +319,7 @@
             
             
               
-                css选择器
+                redux
               
             
           </h1>
@@ -336,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T02:45:58+00:00">
-                2017-09-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T10:53:41+00:00">
+                2018-02-01
               </time>
             
 
@@ -359,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -377,9 +375,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/29/css选择器/#comments" itemprop="discussionUrl">
+                <a href="/2018/02/01/redux/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/29/css选择器/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/02/01/redux/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -405,32 +403,23 @@
 
       
         <blockquote>
-<p>总结选择器感觉就是像在记流水账，，，不过css的选择器功能确实挺强大的，有些匹配和正则的匹配方式是一致的，有些是css3新增的，旧版本的浏览器可能会不支持，可以通过caniuse网站来查看兼容性。</p>
+<p>redux一直没有总结,去看中间件的源码看得更是晕乎乎的，下面的总结是站在大牛的肩膀上看到的远方。</p>
 </blockquote>
-<p><img src="/img/选择器.png" alt=""><br><a href="http://naotu.baidu.com/file/cb535512773b5dcc4ecc10ddcd92c0d3" target="_blank" rel="noopener">详细脑图</a></p>
-<h2 id="css历史"><a href="#css历史" class="headerlink" title="css历史"></a>css历史</h2><blockquote>
-<p>css1 1996<br>  css2 1992<br>  css2.1 2007<br>  css3 2001-.</p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a><a href="https://redux.js.org/" target="_blank" rel="noopener">Redux</a></h2><p>  redux说白了就是一个保存全局变量的东西。当一个项目需要处理一个比较复杂的数据流的时候，可能就会出现各种状态管理工具，redux就是其中之一。<br>  可以将redux理解为保存一个可供外部读取和修改的私有变量，利用了闭包的特性。在闭包函数中提供了一些方法：<code>获取</code>，<code>修改</code>，<code>订阅更新</code>  </p>
+<h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a><a href="https://github.com/reactjs/react-redux" target="_blank" rel="noopener">React-Redux</a></h2><p>  redux库是独立存在的，在不是react的项目也可以使用，在react使用redux需要引入React-Redux， React-Redux提供了两个重要的功能： <provider>, connect()<br>  <code>&lt;Provider/&gt;</code>接受一个 store 作为 props，它是整个 Redux 应用的顶层组件<br>  <code>connect()</code> 提供了在整个 React 应用的任意组件中获 取 store 中数据的功能。子组件通过HOC建立与顶层props.store的联系，进而获取数据、修改数据、更新UI。</provider></p>
+<h2 id="HOC"><a href="#HOC" class="headerlink" title="HOC"></a><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="noopener">HOC</a></h2><p>  需要使用一些高级的功能，函数中会有高阶函数，react中也存在高阶组件。高阶组件的实现方式通常分成下面两种：<br>  <code>属性代理</code>（props proxy）。高阶组件通过被包裹的 React 组件来操作 props。（redux的connect的实现方式）<br>  <code>反向继承</code>（inheritance inversion）。高阶组件继承于被包裹的 React 组件。</p>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a><a href="https://reactjs.org/docs/context.html" target="_blank" rel="noopener">Context</a></h2><p>  哈哈，把Context比作穿越空间的虫洞很有意思。<a href="https://segmentfault.com/a/1190000004636213" target="_blank" rel="noopener">React中的“虫洞”</a><br>  Context就像javascript中的全局变量，只有真正全局的东西才适合放在context中。<br>  比如：<code>当前用户信息</code>、 <code>flux、redux的store</code> 、<code>session级别信息（语言，主题等）</code></p>
+<h2 id="redux使用场景"><a href="#redux使用场景" class="headerlink" title="redux使用场景"></a>redux使用场景</h2><p>  1 不同组件之间期望不用通过组件代码通信<br>  2 复杂数据流存储<br>  3 …(想作为全局数据保存的数据)</p>
+<h2 id="消息模块redux的使用"><a href="#消息模块redux的使用" class="headerlink" title="消息模块redux的使用"></a>消息模块redux的使用</h2><blockquote>
+<p>消息模块的使用场景<br>  由于消息是根据socket实时推送，需要对于下面的数据进行修改。<br>  [<br>    {name: ‘’, log: ‘’, readMum: ‘’},<br>    {name: ‘’, log: ‘’, readMum: ‘’},<br>    {name: ‘’, log: ‘’, readMum: ‘’}<br>  ]<br>  那么可能用到： 数据的获取，修改，渲染</p>
 </blockquote>
-<h2 id="外部文件引入方式"><a href="#外部文件引入方式" class="headerlink" title="外部文件引入方式"></a>外部文件引入方式</h2><p> <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;&lt;/link&gt;</code></p>
-<h2 id="浏览器私有属性"><a href="#浏览器私有属性" class="headerlink" title="浏览器私有属性"></a>浏览器私有属性</h2><blockquote>
-<p>chrome，safari<br>  <code>-webkit-</code><br>  firefox<br>  <code>-moz-</code><br>  IE<br>  <code>-ms-</code><br>  opera<br>  <code>-o-</code></p>
-</blockquote>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>  注释<br>  <code>/**/</code><br>  选择器 {<br>    属性声明<br>  }</p>
-<p>  属性声明=属性名：属性值</p>
-<p>  属性值语法：<br>  margin:[<length>|<percentage>|auto]{1,4}<br>         基本元素 组合符号 数量符号</percentage></length></p>
-<p>  基本类型<br>  关键字, 类型, 符号（/,）, inherit, initial</p>
-<p> 组合符号<br>  空格（必填，顺序有关）<br>  &amp;&amp;（必填，顺序无关，）<br>  ||（至少出现一个）<br>  | （只能出现一个）<br>  [] 分组</p>
-<p> 数量符号<br>  无<br>  <code>+</code> 可以出现一次货多次<br>  <code>?</code> 可出现也可以不出现<br>  <code>{2,4}</code><br>  <code>*</code><br>  <code>#</code> 一次或者多次</p>
-<p>  规则语法<br>  @标示符 xxx;<br>  @ 标示符 {}</p>
-<p>  规则<br>  @media<br>  @keyframes<br>  @font-face<br>  @import</p>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>  ID选择器<br>  类选择器<br>  标签选择器<br>  <code>*</code>通配符选择器</p>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[attr]</span><br><span class="line">[attr=&quot;val&quot;] 表示val中包含符号或者空格</span><br><span class="line">[attr=val]  #nav&#123;&#125; == [id=nav]&#123;&#125;</span><br><span class="line">[attr~=val] .sport&#123;&#125; == [class~=sports]&#123;&#125;，可用于除了class以为的其它属性</span><br><span class="line">[attr|=val] 特定属性选择器，一般用于匹配属性lang的值</span><br><span class="line">[attr^=val]</span><br><span class="line">[attr$=val]</span><br><span class="line">[attr*=val]</span><br></pre></td></tr></table></figure>
-<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a:link</span><br><span class="line">a:visited</span><br><span class="line">a:hover</span><br><span class="line">a:active</span><br><span class="line">:enabled, disabled, checked</span><br><span class="line">:only-child</span><br><span class="line"></span><br><span class="line">:first-child</span><br><span class="line">:last-child</span><br><span class="line">:nth-child(even|odd)</span><br><span class="line">:nth-child(n+1)</span><br><span class="line">:nth-last-child(n+1)</span><br><span class="line"></span><br><span class="line">dd:first-of-type&#123;&#125;(同上)</span><br><span class="line"></span><br><span class="line">:empty</span><br><span class="line">:root</span><br><span class="line">:not eg: :not(p)选择非p元素</span><br><span class="line">:target</span><br><span class="line">:lang()</span><br></pre></td></tr></table></figure>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(应用在元素内容的选择器)在css3中为了区别伪元素和伪类在前面添加::</span><br><span class="line">::first-letter</span><br><span class="line">::first-line</span><br><span class="line">::before (和content一起使用)</span><br><span class="line">::after</span><br><span class="line">::selection</span><br></pre></td></tr></table></figure>
-<h3 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">后代选择器</span><br><span class="line">.main h2</span><br><span class="line">子选择权</span><br><span class="line">.main&gt;h12</span><br><span class="line">兄弟选择器</span><br><span class="line">h2+p(获取前面为h2的一个p元素)</span><br><span class="line">h2~p(获取前面为h2的所有兄弟)</span><br></pre></td></tr></table></figure>
-<h3 id="选择器分组"><a href="#选择器分组" class="headerlink" title="选择器分组"></a>选择器分组</h3><p>  <code>h1,h2,h3...</code></p>
-<h2 id="css优先级"><a href="#css优先级" class="headerlink" title="css优先级"></a>css优先级</h2><p>  !important<br>  a = 行内样式                       <code>1000</code><br>  b = ID选择器的数量                  <code>100</code><br>  c = 类、属性选择器的数量             <code>10</code><br>  d = 标签选择器和伪元素选择器的数据量   <code>1</code></p>
-<h2 id="兼容性测试网站"><a href="#兼容性测试网站" class="headerlink" title="兼容性测试网站"></a>兼容性测试网站</h2><p>  <a href="https://www.quirksmode.org/css/" target="_blank" rel="noopener">https://www.quirksmode.org/css/</a><br>  <a href="http://caniuse.com/" target="_blank" rel="noopener">http://caniuse.com/</a></p>
+<h3 id="定义action"><a href="#定义action" class="headerlink" title="定义action"></a>定义action</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// 获取消息菜单</span><br><span class="line">let MESSAGES = [];</span><br><span class="line">export function getMsgMenu(menuData, type) &#123;</span><br><span class="line">  if (type === 0) &#123;</span><br><span class="line">    // 第一次请求接口加载数据</span><br><span class="line">    MESSAGES = menuData;</span><br><span class="line">  &#125; else if (type === 1) &#123;</span><br><span class="line">    // websocket推送</span><br><span class="line">    // 处理数据</span><br><span class="line">    const newMsgType = menuData.type;</span><br><span class="line">    const newMsgTypeUnReadNum = menuData.num;</span><br><span class="line">    let breakForLoop = false;</span><br><span class="line">    for (let i = 0; i &lt; MESSAGES.length; i++) &#123;</span><br><span class="line">      for (let j = 0; j &lt; MESSAGES[i].childList.length; j++) &#123;</span><br><span class="line">        if (MESSAGES[i].childList[j].type === newMsgType) &#123;</span><br><span class="line">          MESSAGES[i].childList[j].unReadNum = newMsgTypeUnReadNum;</span><br><span class="line">          breakForLoop = true;</span><br><span class="line">          break;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (breakForLoop) break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else if (type === 2) &#123;</span><br><span class="line">    // 点击某一类消息时，把未读消息数置 0</span><br><span class="line">    // 此时第一个参数为消息类型</span><br><span class="line">    let breakForLoop = false;</span><br><span class="line">    for (let i = 0; i &lt; MESSAGES.length; i++) &#123;</span><br><span class="line">      for (let j = 0; j &lt; MESSAGES[i].childList.length; j++) &#123;</span><br><span class="line">        if (MESSAGES[i].childList[j].type === menuData) &#123;</span><br><span class="line">          MESSAGES[i].childList[j].unReadNum = &apos;0&apos;;</span><br><span class="line">          breakForLoop = true;</span><br><span class="line">          break;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (breakForLoop) break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    type: MSG_MENU,</span><br><span class="line">    payload: MESSAGES</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="定义reducer"><a href="#定义reducer" class="headerlink" title="定义reducer"></a>定义reducer</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const MSG_MENU = &apos;MSG_MENU&apos;;</span><br><span class="line"></span><br><span class="line">export default function (state = [], action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case MSG_MENU:</span><br><span class="line">      return action.payload;</span><br><span class="line">    default:</span><br><span class="line">      return state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line">import appMenuReducer from &apos;./app-menu-reducer&apos;;</span><br><span class="line">import msgMenuReducer from &apos;./msg-menu-reducer&apos;;</span><br><span class="line"></span><br><span class="line">const rootReducer = combineReducers(&#123;</span><br><span class="line">  appMenu: appMenuReducer,</span><br><span class="line">  msgMenu: msgMenuReducer</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export default rootReducer;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="在根元素的位置引入Provider"><a href="#在根元素的位置引入Provider" class="headerlink" title="在根元素的位置引入Provider"></a>在根元素的位置引入Provider</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const createStoreWithMiddleware = applyMiddleware(promise)(createStore);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;createStoreWithMiddleware(reducers)&#125;&gt;</span><br><span class="line">    &lt;RouterMap /&gt;</span><br><span class="line">  &lt;/Provider&gt;,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="在组件中使用redux"><a href="#在组件中使用redux" class="headerlink" title="在组件中使用redux"></a>在组件中使用redux</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &apos;react-redux&apos;;</span><br><span class="line">import &#123; bindActionCreators &#125; from &apos;redux&apos;;</span><br><span class="line">import &#123; getMsgMenu &#125; from &apos;../actions/index&apos;; // action</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  // 修改和获取都是通过props完成</span><br><span class="line">  if (this.props.msgMenu.length === 0) &#123; // 获取store里的数值</span><br><span class="line">    axios.get(&apos;/api/snp/CRH-SNP5103&apos;).then((res) =&gt; &#123;</span><br><span class="line">      this.props.getMsgMenu(res.resultList, 0); // dispatch 一个action</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function mapStateToProps(&#123; msgMenu &#125;) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    msgMenu</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function mapDispatchToProps(dispatch) &#123;</span><br><span class="line">  return bindActionCreators(&#123; getMsgMenu &#125;, dispatch);</span><br><span class="line">&#125;</span><br><span class="line">// 通过HOC使SpecialMsg具有msgMenu, getMsgMenu(props);</span><br><span class="line">export default connect(mapStateToProps, mapDispatchToProps)(SpecialMsg);</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>  1 使用redux<br>  2 了解redux原理<br>  3 了解各个知识点<br>  4 进阶了解中间件<br>  5 不禁感慨学无止境,,</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/26485702" target="_blank" rel="noopener">参考1</a><br><a href="https://segmentfault.com/a/1190000008648319" target="_blank" rel="noopener">参考2</a></p>
 
       
     </div>
@@ -460,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/选择器/" rel="tag"># 选择器</a>
+            <a href="/tags/redux/" rel="tag"># redux</a>
           
         </div>
       
@@ -473,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/24/国金项目总结/" rel="next" title="国金项目总结">
-                <i class="fa fa-chevron-left"></i> 国金项目总结
+              <a href="/2017/12/07/用模块封装代码/" rel="next" title="用模块封装代码">
+                <i class="fa fa-chevron-left"></i> 用模块封装代码
               </a>
             
           </div>
@@ -482,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/29/创建对象/" rel="prev" title="创建对象">
-                创建对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#css历史"><span class="nav-number">1.</span> <span class="nav-text">css历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外部文件引入方式"><span class="nav-number">2.</span> <span class="nav-text">外部文件引入方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器私有属性"><span class="nav-number">3.</span> <span class="nav-text">浏览器私有属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">4.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">5.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器"><span class="nav-number">5.2.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素选择器"><span class="nav-number">5.3.</span> <span class="nav-text">伪元素选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合选择器"><span class="nav-number">5.4.</span> <span class="nav-text">组合选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器分组"><span class="nav-number">5.5.</span> <span class="nav-text">选择器分组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css优先级"><span class="nav-number">6.</span> <span class="nav-text">css优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性测试网站"><span class="nav-number">7.</span> <span class="nav-text">兼容性测试网站</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">1.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux"><span class="nav-number">2.</span> <span class="nav-text">React-Redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HOC"><span class="nav-number">3.</span> <span class="nav-text">HOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context"><span class="nav-number">4.</span> <span class="nav-text">Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redux使用场景"><span class="nav-number">5.</span> <span class="nav-text">redux使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息模块redux的使用"><span class="nav-number">6.</span> <span class="nav-text">消息模块redux的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义action"><span class="nav-number">6.1.</span> <span class="nav-text">定义action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义reducer"><span class="nav-number">6.2.</span> <span class="nav-text">定义reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combineReducers"><span class="nav-number">6.3.</span> <span class="nav-text">combineReducers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在根元素的位置引入Provider"><span class="nav-number">6.4.</span> <span class="nav-text">在根元素的位置引入Provider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在组件中使用redux"><span class="nav-number">6.5.</span> <span class="nav-text">在组件中使用redux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">7.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -764,9 +749,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/09/29/css选择器/';
-          this.page.identifier = '2017/09/29/css选择器/';
-          this.page.title = 'css选择器';
+          this.page.url = 'http://yoursite.com/2018/02/01/redux/';
+          this.page.identifier = '2018/02/01/redux/';
+          this.page.title = 'redux';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-lvsally-github-io.disqus.com/embed.js';
