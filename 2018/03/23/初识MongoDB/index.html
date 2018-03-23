@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="es6," />
+  <meta name="keywords" content="mongo," />
 
 
 
@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="javascript用共享一切的方法加载代码，这样会造成一些命名冲突和安全问题。es6的一个目标就是解决作用域问题，为了javascript程序显得有序，引入了模块。  模块是自动运行在严格模式下并且没有办法退出运行的javascript代码。 模块的顶部，this的值是undefined 模块不支持html注释 模块的真正魔力在于导入与导出而不是将所有的东西放到一个文件中处理   导出文档说明">
-<meta name="keywords" content="es6">
+<meta name="description" content="初识mongo 认识  1 非关系型数据库，缺点是当两张表需要建立连接的时候处理起来比较麻烦  2 以集合的方式操作和保存数据  3 非常轻量，和node搭配实现了前端可以方便对数据进行存取，让前端找到了存在感..  安装和使用 1 下载  2 在mac中直接解压，进入二进制文件夹bin目录  3 启动数据库，并制定数据存放位置  12cd Applications/mongodb/bin./mo">
+<meta name="keywords" content="mongo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用模块封装代码">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/用模块封装代码/index.html">
+<meta property="og:title" content="初识MongoDB">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/初识MongoDB/index.html">
 <meta property="og:site_name" content="Home">
-<meta property="og:description" content="javascript用共享一切的方法加载代码，这样会造成一些命名冲突和安全问题。es6的一个目标就是解决作用域问题，为了javascript程序显得有序，引入了模块。  模块是自动运行在严格模式下并且没有办法退出运行的javascript代码。 模块的顶部，this的值是undefined 模块不支持html注释 模块的真正魔力在于导入与导出而不是将所有的东西放到一个文件中处理   导出文档说明">
+<meta property="og:description" content="初识mongo 认识  1 非关系型数据库，缺点是当两张表需要建立连接的时候处理起来比较麻烦  2 以集合的方式操作和保存数据  3 非常轻量，和node搭配实现了前端可以方便对数据进行存取，让前端找到了存在感..  安装和使用 1 下载  2 在mac中直接解压，进入二进制文件夹bin目录  3 启动数据库，并制定数据存放位置  12cd Applications/mongodb/bin./mo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T02:46:44.742Z">
+<meta property="og:updated_time" content="2018-03-23T02:46:44.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用模块封装代码">
-<meta name="twitter:description" content="javascript用共享一切的方法加载代码，这样会造成一些命名冲突和安全问题。es6的一个目标就是解决作用域问题，为了javascript程序显得有序，引入了模块。  模块是自动运行在严格模式下并且没有办法退出运行的javascript代码。 模块的顶部，this的值是undefined 模块不支持html注释 模块的真正魔力在于导入与导出而不是将所有的东西放到一个文件中处理   导出文档说明">
+<meta name="twitter:title" content="初识MongoDB">
+<meta name="twitter:description" content="初识mongo 认识  1 非关系型数据库，缺点是当两张表需要建立连接的时候处理起来比较麻烦  2 以集合的方式操作和保存数据  3 非常轻量，和node搭配实现了前端可以方便对数据进行存取，让前端找到了存在感..  安装和使用 1 下载  2 在mac中直接解压，进入二进制文件夹bin目录  3 启动数据库，并制定数据存放位置  12cd Applications/mongodb/bin./mo">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/07/用模块封装代码/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/初识MongoDB/"/>
 
 
 
 
 
-  <title>用模块封装代码 | Home</title>
+  <title>初识MongoDB | Home</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/用模块封装代码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/初识MongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="橘子吕">
@@ -319,7 +319,7 @@
             
             
               
-                用模块封装代码
+                初识MongoDB
               
             
           </h1>
@@ -334,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T09:13:17+00:00">
-                2017-12-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T09:35:47+00:00">
+                2018-03-23
               </time>
             
 
@@ -357,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/服务端/" itemprop="url" rel="index">
+                    <span itemprop="name">服务端</span>
                   </a>
                 </span>
 
@@ -375,9 +375,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/07/用模块封装代码/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/23/初识MongoDB/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/07/用模块封装代码/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/23/初识MongoDB/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -402,46 +402,19 @@
       
 
       
-        <blockquote>
-<p>javascript用<code>共享一切</code>的方法加载代码，这样会造成一些命名冲突和安全问题。es6的一个目标就是解决作用域问题，为了javascript程序显得有序，引入了模块。</p>
-<ul>
-<li><code>模块</code>是自动运行在严格模式下并且没有办法退出运行的javascript代码。</li>
-<li>模块的顶部，this的值是<code>undefined</code></li>
-<li>模块<code>不支持</code>html注释</li>
-<li>模块的真正魔力在于<code>导入与导出</code>而不是将所有的东西放到一个文件中处理</li>
+        <h2 id="初识mongo"><a href="#初识mongo" class="headerlink" title="初识mongo"></a>初识mongo</h2><blockquote>
+<p>认识<br>  1 非关系型数据库，缺点是当两张表需要建立连接的时候处理起来比较麻烦<br>  2 以集合的方式操作和保存数据<br>  3 非常轻量，和node搭配实现了前端可以方便对数据进行存取，让前端找到了存在感..</p>
+</blockquote>
+<h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><blockquote>
+<p>1 <a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">下载</a><br>  2 在mac中直接解压，进入二进制文件夹<code>bin</code>目录<br>  3 启动数据库，并制定数据存放位置<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Applications/mongodb/bin</span><br><span class="line">./mongod --dbpath /Users/lvjingjing/mongo-data</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>4 在可视化工具(<code>robo 3T</code>)中查看数据. <a href="https://robomongo.org/download" target="_blank" rel="noopener">下载</a> <a href="https://www.cnblogs.com/dacongge/p/7346037.html" target="_blank" rel="noopener">基本使用</a></p>
+</blockquote>
+<h2 id="方法封装"><a href="#方法封装" class="headerlink" title="方法封装"></a>方法封装</h2><ul>
+<li>通过下面的封装方法记录mongo基本的增删改查,以及node中如何引入mongodb<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Created by Danny on 2015/9/25 9:31.</span><br><span class="line"> */</span><br><span class="line">//这个模块里面封装了所有对数据库的常用操作</span><br><span class="line">var MongoClient = require(&apos;mongodb&apos;).MongoClient;</span><br><span class="line">var settings = require(&quot;../settings.js&quot;);</span><br><span class="line">//不管数据库什么操作，都是先连接数据库，所以我们可以把连接数据库</span><br><span class="line">//封装成为内部函数</span><br><span class="line">function _connectDB(callback) &#123;</span><br><span class="line">    // &quot;dburl&quot; : &quot;mongodb://localhost:27017/test&quot;, test对应的数据库</span><br><span class="line">    var url = settings.dburl;   //从settings文件中，都数据库地址</span><br><span class="line">    //连接数据库</span><br><span class="line">    MongoClient.connect(url, function (err, db) &#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">            callback(err, null);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        callback(err, db);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init();</span><br><span class="line"></span><br><span class="line">function init()&#123;</span><br><span class="line">    //对数据库进行一个初始化</span><br><span class="line">    _connectDB(function(err, db)&#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">            console.log(err);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        db.collection(&apos;users&apos;).createIndex(</span><br><span class="line">            &#123; &quot;username&quot;: 1&#125;,</span><br><span class="line">            null,</span><br><span class="line">            function(err, results) &#123;</span><br><span class="line">                if (err) &#123;</span><br><span class="line">                    console.log(err);</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                console.log(&quot;索引建立成功&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//插入数据</span><br><span class="line">exports.insertOne = function (collectionName, json, callback) &#123;</span><br><span class="line">    _connectDB(function (err, db) &#123;</span><br><span class="line">        db.collection(collectionName).insertOne(json, function (err, result) &#123;</span><br><span class="line">            callback(err, result);</span><br><span class="line">            db.close(); //关闭数据库</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//查找数据，找到所有数据。args是个对象&#123;&quot;pageamount&quot;:10,&quot;page&quot;:10&#125;</span><br><span class="line">exports.find = function (collectionName, json, C, D) &#123;</span><br><span class="line">    var result = [];    //结果数组</span><br><span class="line">    if (arguments.length == 3) &#123;</span><br><span class="line">        //那么参数C就是callback，参数D没有传。</span><br><span class="line">        var callback = C;</span><br><span class="line">        var skipnumber = 0;</span><br><span class="line">        //数目限制</span><br><span class="line">        var limit = 0;</span><br><span class="line">    &#125; else if (arguments.length == 4) &#123;</span><br><span class="line">        var callback = D;</span><br><span class="line">        var args = C;</span><br><span class="line">        //应该省略的条数</span><br><span class="line">        var skipnumber = args.pageamount * args.page || 0;</span><br><span class="line">        //数目限制</span><br><span class="line">        var limit = args.pageamount || 0;</span><br><span class="line">        //排序方式</span><br><span class="line">        var sort = args.sort || &#123;&#125;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new Error(&quot;find函数的参数个数，必须是3个，或者4个。&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //连接数据库，连接之后查找所有</span><br><span class="line">    _connectDB(function (err, db) &#123;</span><br><span class="line">        var cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit).sort(sort);</span><br><span class="line">        cursor.each(function (err, doc) &#123;</span><br><span class="line">            if (err) &#123;</span><br><span class="line">                callback(err, null);</span><br><span class="line">                db.close(); //关闭数据库</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if (doc != null) &#123;</span><br><span class="line">                result.push(doc);   //放入结果数组</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                //遍历结束，没有更多的文档了</span><br><span class="line">                callback(null, result);</span><br><span class="line">                db.close(); //关闭数据库</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//删除</span><br><span class="line">exports.deleteMany = function (collectionName, json, callback) &#123;</span><br><span class="line">    _connectDB(function (err, db) &#123;</span><br><span class="line">        //删除</span><br><span class="line">        db.collection(collectionName).deleteMany(</span><br><span class="line">            json,</span><br><span class="line">            function (err, results) &#123;</span><br><span class="line">                callback(err, results);</span><br><span class="line">                db.close(); //关闭数据库</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//修改</span><br><span class="line">exports.updateMany = function (collectionName, json1, json2, callback) &#123;</span><br><span class="line">    _connectDB(function (err, db) &#123;</span><br><span class="line">        db.collection(collectionName).updateMany(</span><br><span class="line">            json1,</span><br><span class="line">            json2,</span><br><span class="line">            function (err, results) &#123;</span><br><span class="line">                callback(err, results);</span><br><span class="line">                db.close();</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//得到总数量</span><br><span class="line">exports.getAllCount = function (collectionName,callback) &#123;</span><br><span class="line">    _connectDB(function (err, db) &#123;</span><br><span class="line">        db.collection(collectionName).count(&#123;&#125;).then(function(count) &#123;</span><br><span class="line">            callback(count);</span><br><span class="line">            db.close();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</blockquote>
-<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export" target="_blank" rel="noopener">文档说明</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 语法：</span><br><span class="line">export &#123; name1, name2, …, nameN &#125;;</span><br><span class="line">export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;</span><br><span class="line">export let name1, name2, …, nameN; // also var</span><br><span class="line">export let name1 = …, name2 = …, …, nameN; // also var, const</span><br><span class="line"></span><br><span class="line">export default expression;</span><br><span class="line">export default function (…) &#123; … &#125; // also class, function*</span><br><span class="line">export default function name1(…) &#123; … &#125; // also class, function*</span><br><span class="line">export &#123; name1 as default, … &#125;;</span><br><span class="line"></span><br><span class="line">export * from …;</span><br><span class="line">export &#123; name1, name2, …, nameN &#125; from …;</span><br><span class="line">export &#123; import1 as name1, import2 as name2, …, nameN &#125; from …;</span><br></pre></td></tr></table></figure></p>
-<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export" target="_blank" rel="noopener">文档说明</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 语法：</span><br><span class="line">import defaultExport from &quot;module-name&quot;;</span><br><span class="line">import * as name from &quot;module-name&quot;;</span><br><span class="line">import &#123; export &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; export as alias &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; export1 , export2 &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; export1 , export2 as alias2 , [...] &#125; from &quot;module-name&quot;;</span><br><span class="line">import defaultExport, &#123; export [ , [...] ] &#125; from &quot;module-name&quot;;</span><br><span class="line">import defaultExport, * as name from &quot;module-name&quot;;</span><br><span class="line">import &quot;module-name&quot;;</span><br><span class="line"></span><br><span class="line">// es6的import语句为变量、函数、和类创建的是只读绑定，因此引入一个变量时试图在这个模块中修改这个变量会报错。</span><br></pre></td></tr></table></figure></p>
-<h2 id="无绑定导入"><a href="#无绑定导入" class="headerlink" title="无绑定导入"></a>无绑定导入</h2><blockquote>
-<p>内建对象（如Array,Object）的共享定义可以在其它模块中访问，对这些对象所做的更改也将反应在其它模块中。无绑定导入通常被用在<a href="https://www.zhihu.com/question/22129715" target="_blank" rel="noopener">Polyfill和Shim</a>.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 向数组添加pushAll方法，放入example.js</span><br><span class="line">  Array.prototype.pushAll = function(items) &#123;</span><br><span class="line">    if(!Array.isArray(items)) &#123;</span><br><span class="line">      throw new TypeError(&apos;参数必须是一个数组！&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    return this.push(...items);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 使用</span><br><span class="line">  import &quot;./example.js&quot;;</span><br><span class="line">  let color = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];</span><br><span class="line">  items = [];</span><br><span class="line">  items.pushAll(color);</span><br></pre></td></tr></table></figure>
-<h2 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h2><h3 id="在web浏览器中使用模块"><a href="#在web浏览器中使用模块" class="headerlink" title="在web浏览器中使用模块"></a>在web浏览器中使用模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--加载一个javascript模块文件--&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!--内联引入一个模块--&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;module&quot;&gt;</span><br><span class="line">  import &#123; export &#125; from &quot;module-name&quot;;</span><br><span class="line">  export();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module2.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="在web浏览器模块的加载顺序"><a href="#在web浏览器模块的加载顺序" class="headerlink" title="在web浏览器模块的加载顺序"></a>在web浏览器模块的加载顺序</h3><p>使用模块化加载资源都是按需加载并执行的。</p>
-<h4 id="同步执行"><a href="#同步执行" class="headerlink" title="同步执行"></a>同步执行</h4><p>按照在文档中出现的顺序顺序执行。<br>上面的案例代码执行顺序为</p>
-<blockquote>
-<p>1 下载module1.js并解析<br>2 递归下载并解析module1.js引入的资源<br>3 解析内联模块<br>4 递归下载并解析内联模块中引入的资源<br>5 下载module2.js并解析<br>6 递归下载并解析module2.js引入的资源</p>
-</blockquote>
-<p>只有加载完成后才会执行其他操作，加载完成后</p>
-<blockquote>
-<p>1 执行module1.js并解析<br>2 递归执行module1.js引入的资源<br>3 解析内联模块<br>4 递归执行内联模块中引入的资源<br>5 执行module2.js并解析<br>6 递归执行module2.js引入的资源</p>
-</blockquote>
-<h4 id="异步执行"><a href="#异步执行" class="headerlink" title="异步执行"></a>异步执行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;module&quot; async src=&quot;module1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; async src=&quot;module2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">// 上面的代码如果module1.js先下载完成（包括所有导入的资源），module1.js先执行。同样的module2.js也一样</span><br></pre></td></tr></table></figure>
-<h3 id="浏览器模块说明解析符"><a href="#浏览器模块说明解析符" class="headerlink" title="浏览器模块说明解析符"></a>浏览器模块说明解析符</h3><ul>
-<li>以<code>/</code>开头的解析为从<code>根</code>目录开始。</li>
-<li>以<code>./</code>开头的解析为从<code>当前</code>目录开始。</li>
-<li>以<code>../</code>开头的解析为从<code>父</code>目录开始。</li>
-<li><code>URL</code>格式。</li>
-</ul>
-<h2 id="对es6模块化的理解"><a href="#对es6模块化的理解" class="headerlink" title="对es6模块化的理解"></a>对es6模块化的理解</h2><p>copy react项目总结</p>
-<p>理解初始于，这样的一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">let moduleList = [];</span><br><span class="line">class Message extends Component &#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;page page-msg&quot;&gt;</span><br><span class="line">        ...</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default Message;</span><br></pre></td></tr></table></figure></p>
-<p>在class外部定义的变量<code>moduleList</code>并不会被销毁，babel把一个个的实例变成了立即执行函数，查看babel编译后的文件可以看到该字段是闭包中的一个私有变量，由于在闭包中字段不会销毁并且能保留数据操作后的状态，同时也可以通过调用class中的方法来修改该字段。当然该字段也存在闭包所存在的方法，正确使用有助于提高代码的质量。<br>同时想到那些require.js sea.js import export, jquery之类的处理方法为了不污染外部变量都采用了再立即执行的作用域内最终return对外公开的对象，通过该对象可以操作闭包中的方法和属性，达到一些代码封装和模块加载的功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 测试</span><br><span class="line">(function() &#123;</span><br><span class="line">    var _userId = 1;</span><br><span class="line">    var exportTest = &#123;&#125;;</span><br><span class="line">    function converter(userId) &#123;</span><br><span class="line">        _userId = ++userId;</span><br><span class="line">        return _userId;</span><br><span class="line">    &#125;</span><br><span class="line">    exportTest.getUserId = function() &#123;</span><br><span class="line">        return converter(_userId);</span><br><span class="line">    &#125;</span><br><span class="line">    window.exportTest = exportTest;</span><br><span class="line">&#125; ());</span><br><span class="line">exportTest.getUserId()// 此时的user id 会不断增加，因为闭包中的私有变量不会被清除，除非exportTest = null,释放对闭包函数的引用</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>总结<br>1 过程立即执行函数执行，同时export一个闭包函数，保存着对闭包的引用<br>2 当执行exportTest.getUserId() 私有变量_userId被重新赋值，呈自增（空间从未被释放）<br>3 exportTest = null，闭包中的变量引用，以及闭包函数被释放</p>
-</blockquote>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>感慨一下模块化的知识树<br>1 了解用法<br>2 了解在一些执行环境的中的执行顺序<br>3 了解模块化实现的原理，从而就可以在一些方面中利用闭包的一些特性，相当有用<br>4 和其他知识像结合，模块化中给一些基本的对象增加原型方法，实现方法共享<br>5 了解不同的模块化库，以及一些模块化规范，还有实现方法<br>哈哈，这样看来我还是个渣渣，:-D</p>
 
       
     </div>
@@ -471,7 +444,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/es6/" rel="tag"># es6</a>
+            <a href="/tags/mongo/" rel="tag"># mongo</a>
           
         </div>
       
@@ -484,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/promise学习/" rel="next" title="promise学习">
-                <i class="fa fa-chevron-left"></i> promise学习
+              <a href="/2018/03/22/ajax请求从前端至后端/" rel="next" title="ajax请求从前端至后端">
+                <i class="fa fa-chevron-left"></i> ajax请求从前端至后端
               </a>
             
           </div>
@@ -493,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/01/redux/" rel="prev" title="redux">
-                redux <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导出"><span class="nav-number">1.</span> <span class="nav-text">导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">2.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无绑定导入"><span class="nav-number">3.</span> <span class="nav-text">无绑定导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载模块"><span class="nav-number">4.</span> <span class="nav-text">加载模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在web浏览器中使用模块"><span class="nav-number">4.1.</span> <span class="nav-text">在web浏览器中使用模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在web浏览器模块的加载顺序"><span class="nav-number">4.2.</span> <span class="nav-text">在web浏览器模块的加载顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同步执行"><span class="nav-number">4.2.1.</span> <span class="nav-text">同步执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步执行"><span class="nav-number">4.2.2.</span> <span class="nav-text">异步执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器模块说明解析符"><span class="nav-number">4.3.</span> <span class="nav-text">浏览器模块说明解析符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对es6模块化的理解"><span class="nav-number">5.</span> <span class="nav-text">对es6模块化的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text">其它</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识mongo"><span class="nav-number">1.</span> <span class="nav-text">初识mongo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和使用"><span class="nav-number">2.</span> <span class="nav-text">安装和使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法封装"><span class="nav-number">3.</span> <span class="nav-text">方法封装</span></a></li></ol></div>
             
 
           </div>
@@ -775,9 +744,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/07/用模块封装代码/';
-          this.page.identifier = '2017/12/07/用模块封装代码/';
-          this.page.title = '用模块封装代码';
+          this.page.url = 'http://yoursite.com/2018/03/23/初识MongoDB/';
+          this.page.identifier = '2018/03/23/初识MongoDB/';
+          this.page.title = '初识MongoDB';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-lvsally-github-io.disqus.com/embed.js';
