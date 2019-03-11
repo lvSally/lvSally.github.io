@@ -100,7 +100,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/创建对象.png">
 <meta property="og:image" content="http://yoursite.com/img/构造函数执行过程.png">
-<meta property="og:updated_time" content="2018-11-15T03:53:10.535Z">
+<meta property="og:updated_time" content="2019-03-11T03:53:05.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建对象">
 <meta name="twitter:description" content="对象描述： 无序的key,value键值对  整个对象发展的过程：    ——》先是有个new一个对象的写法      简化写法    ——》对象字面量（可以使用对象写法）      批量生产    ——》工厂模式（new Object）      区别自定义对象类型    ——》构造函数类型（可以new 自定义类型, 构造函数定义来了）      解决函数类型实例化造成的空间浪费">
@@ -141,7 +141,7 @@
   <title>创建对象 | Home</title>
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -176,7 +176,7 @@
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -298,16 +298,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/创建对象/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="橘子吕">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/img/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Home">
     </span>
 
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
                     <span itemprop="name">js</span>
                   </a>
@@ -402,7 +402,7 @@
       
 
       
-        <p>  <img src="/img/创建对象.png" alt=""><br>  对象描述： 无序的key,value键值对</p>
+        <p>  <img src="/img/创建对象.png" alt><br>  对象描述： 无序的key,value键值对</p>
 <blockquote>
 <p>整个对象发展的过程：<br>    ——》先是有个new一个对象的写法<br>      简化写法<br>    ——》对象字面量（可以使用对象写法）<br>      批量生产<br>    ——》工厂模式（new Object）<br>      区别自定义对象类型<br>    ——》构造函数类型（可以new 自定义类型, 构造函数定义来了）<br>      解决函数类型实例化造成的空间浪费<br>    ——》原型模式（出现原型对象）<br>      原型对象为实例共享，引用类型修改时会对其它实例造成影响<br>    ——》组合使用构造函数原型模式（1+1 = ？）<br>    …<br>  一系列的相关的问题<br>  this指向，改变this指向的途径，作用域，识别实例来自哪个构造函数，对象看成一个key,value列表因此出现元素遍历,区别实例属性原型链属相-&gt;for in-&gt;..</p>
 </blockquote>
@@ -410,7 +410,7 @@
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>  数据属性<br>  访问器属性： 封装一些组件时一些高级用法时使用</p>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function createPerson(name, age) &#123;</span><br><span class="line">  var o =  new Object();</span><br><span class="line">  o.name = name;</span><br><span class="line">  o.age = age;</span><br><span class="line">  return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p1 = createPerson(&apos;abc&apos;, &apos;16&apos;);</span><br></pre></td></tr></table></figure>
 <p>  解决构造函数或者对象字面量重复的问题，就好比一个蛋糕模子，每次创造出一模一样的东西，缺点：无法区别这些蛋糕（没有解决对象的识别问题）</p>
-<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>  <img src="/img/构造函数执行过程.png" alt=""><br>  与工厂模式比较有点是可以将实例识别为某一种特定的类型<br>  为了区别构造函数和普通函数构造函数首字符大写，构造函数本质就是普通函数，当使用关键字new的时候会产生神奇的变化<br>  1 创建新对象<br>  2 将构造函数的作用域赋值给新对象（this指向改变）<br>  3 执行构造函数的代码（为新对象添加属性）<br>  4 返回新对象</p>
+<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>  <img src="/img/构造函数执行过程.png" alt><br>  与工厂模式比较有点是可以将实例识别为某一种特定的类型<br>  为了区别构造函数和普通函数构造函数首字符大写，构造函数本质就是普通函数，当使用关键字new的时候会产生神奇的变化<br>  1 创建新对象<br>  2 将构造函数的作用域赋值给新对象（this指向改变）<br>  3 执行构造函数的代码（为新对象添加属性）<br>  4 返回新对象</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">var p1 = new Person();</span><br></pre></td></tr></table></figure>
 <p>  缺点：属性为function类型时，多次创建实例的同时也会创建多个function实例</p>
 <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>  原型模式需要理清 构造函数，实例，原型对象之间的关系</p>
@@ -546,7 +546,7 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/img/avatar.jpg" alt="橘子吕">
           <p class="site-author-name" itemprop="name">橘子吕</p>
            
@@ -558,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -580,7 +580,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -638,7 +638,7 @@
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
